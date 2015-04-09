@@ -1,7 +1,9 @@
 all: frontend
 
 frontend:
+	python workitem_func_gen.py
+	python math_func_gen.py
 	python test.py
 
 clean:
-	rm -rf *.s *.ll *.bc *.stdout
+	rm -rf *.cl *.s *.ll *.bc *.stdout

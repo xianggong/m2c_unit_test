@@ -1,3 +1,4 @@
+#define get_work_dim __get_work_dim_u32
 #define get_global_id __get_global_id_u32
 #define get_local_id __get_local_id_u32
 #define get_group_id __get_group_id_u32
