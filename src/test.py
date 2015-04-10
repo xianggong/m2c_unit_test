@@ -42,7 +42,7 @@ def rnm_ir(file_name):
 
 def gen_ir(file_name):
         # Directories
-        root_dir = '../'
+        root_dir = '../../'
         header_dir = root_dir + "inc/"
 
         # Headers

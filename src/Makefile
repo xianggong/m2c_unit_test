@@ -1,12 +1,15 @@
 all: frontend
 
 frontend:
-	python workitem_func_gen.py
-	python math_func_gen.py
-	python integer_func_gen.py
-	python common_func_gen.py
-	python relational_func_gen.py
-	python test.py
+	-cd common && make
+	-cd integer && make
+	-cd math && make
+	-cd relational && make
+	-cd workitem && make
 
 clean:
-	rm -rf *.cl *.s *.ll *.bc *.stdout
+	-cd common && make clean
+	-cd integer && make clean
+	-cd math && make clean
+	-cd relational && make clean
+	-cd workitem && make clean
