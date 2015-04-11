@@ -1,0 +1,16 @@
+;ARGSTART:__OpenCL_integer_abs_uint2_kernel
+;version:3:1:111
+;device:capeverde
+;uniqueid:1024
+;memory:uavprivate:0
+;memory:hwlocal:0
+;memory:hwregion:0
+;pointer:src_0:u32:1:1:0:uav:12:8:RO:0:0
+;pointer:dst:u32:1:1:16:uav:13:8:RW:0:0
+;function:1:1027
+;uavid:11
+;cbid:10
+;privateid:8
+;reflection:0:uint2*
+;reflection:1:uint2*
+;ARGEND:__OpenCL_integer_abs_uint2_kernel
