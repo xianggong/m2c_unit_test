@@ -18,7 +18,7 @@ gentype = ["char", "char2", "char4", "char8", "char16",
            "ulong", "ulong2", "ulong4", "ulong8", "ulong16"]
 
 # return type, function name, param 1 type, param 2 type, ...
-ralational_func_list = [(inttype, "isequal", floattype, floattype),
+relational_func_list = [(inttype, "isequal", floattype, floattype),
                         (inttype, "isnotequal", floattype, floattype),
                         (inttype, "isgreater", floattype, floattype),
                         (inttype, "isgreaterequal", floattype, floattype),
@@ -41,37 +41,36 @@ ralational_func_list = [(inttype, "isequal", floattype, floattype),
 
 
 def main():
-        for func in ralational_func_list:
+        for func in relational_func_list:
                 func_name = func[1]
                 func_num_params = len(func) - 2
-                for floattype_idx in range(len(func[2])):
-                        file_name = "ralational_" + func_name + "_"
+                for gentype_idx in range(len(func[2])):
+                        file_name = "relational_" + func_name + "_"
                         for param_index in range(func_num_params):
                                 param_type_list = func[2 + param_index]
-                                type_idx = floattype_idx
-                                if len(param_type_list) - 1 < floattype_idx:
+                                type_idx = gentype_idx
+                                if len(param_type_list) - 1 < gentype_idx:
                                         type_idx = 0
                                 file_name += param_type_list[type_idx]
                         func_file = open(file_name + ".cl", "w+")
 
-                        line = "// Auto gen by ralational_func_gen.py\n\n"
+                        line = "// Auto gen by relational_func_gen.py\n\n"
                         line += "__kernel void " + file_name + "("
 
                         for param_index in range(func_num_params):
                                 param_type_list = func[2 + param_index]
-                                type_idx = floattype_idx
-                                if len(param_type_list) - 1 < floattype_idx:
+                                type_idx = gentype_idx
+                                if len(param_type_list) - 1 < gentype_idx:
                                         type_idx = 0
                                 param_type = param_type_list[type_idx]
                                 line += "__global " + param_type
                                 line += " *src_" + str(param_index)
-                                if param_index < func_num_params - 1:
-                                        line += ", "
-                                else:
-                                        line += ")\n"
-                        line += "{\n"
+                                line += ", "
                         return_type = func[0]
-                        line += "\t" + return_type[type_idx] + " val = "
+                        line += "__global " + return_type[type_idx] + " *dst)\n"
+                        line += "{\n"
+                        line += "\tint gid = get_global_id(0);\n"
+                        line += "\tdst[gid] = "
                         line += func_name + "("
                         for param in range(func_num_params):
                                 line += "src_" + str(param) + "[0]"
@@ -82,6 +81,7 @@ def main():
 
                         func_file.write(line)
                         func_file.close()
+
 
 if __name__ == "__main__":
         main()

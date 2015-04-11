@@ -12,14 +12,14 @@
 gentype = ["float", "float2", "float4", "float8", "float16"]
 
 common_func_list = [(gentype, "clamp", gentype, gentype, gentype),
-                    (gentype, "clamp", gentype, ["float"], ["float"]),
+                    # (gentype, "clamp", gentype, ["float"], ["float"]),
                     (gentype, "degrees", gentype),
                     (gentype, "max", gentype, gentype),
-                    (gentype, "max", gentype, ["float"]),
+                    # (gentype, "max", gentype, ["float"]),
                     (gentype, "min", gentype, gentype),
-                    (gentype, "min", gentype, ["float"]),
+                    # (gentype, "min", gentype, ["float"]),
                     (gentype, "mix", gentype, gentype, gentype),
-                    (gentype, "mix", gentype, gentype, ["float"]),
+                    # (gentype, "mix", gentype, gentype, ["float"]),
                     (gentype, "radians", gentype),
                     (gentype, "step", gentype, gentype),
                     # (gentype, "step", ["float"], gentype),
@@ -53,13 +53,12 @@ def main():
                                 param_type = param_type_list[type_idx]
                                 line += "__global " + param_type
                                 line += " *src_" + str(param_index)
-                                if param_index < func_num_params - 1:
-                                        line += ", "
-                                else:
-                                        line += ")\n"
-                        line += "{\n"
+                                line += ", "
                         return_type = func[0]
-                        line += "\t" + return_type[type_idx] + " val = "
+                        line += "__global " + return_type[type_idx] + " *dst)\n"
+                        line += "{\n"
+                        line += "\tint gid = get_global_id(0);\n"
+                        line += "\tdst[gid] = "
                         line += func_name + "("
                         for param in range(func_num_params):
                                 line += "src_" + str(param) + "[0]"

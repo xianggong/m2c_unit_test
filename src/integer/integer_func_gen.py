@@ -30,10 +30,10 @@ ugentype = ["uchar", "uchar2", "uchar4", "uchar8", "uchar16",
 # return type, function name, param 1 type, param 2 type, ...
 integer_func_list = [(ugentype, "abs", gentype),
                      (ugentype, "abs_diff", gentype, gentype),
-                     (gentype, "abs_sat", gentype, gentype),
+                     (gentype, "add_sat", gentype, gentype),
                      (gentype, "hadd", gentype, gentype),
                      (gentype, "rhadd", gentype, gentype),
-                     (gentype, "clz", gentype, gentype),
+                     (gentype, "clz", gentype),
                      (gentype, "mad_hi", gentype, gentype, gentype),
                      (gentype, "mad_sat", gentype, gentype, gentype),
                      (gentype, "max", gentype, gentype),
@@ -70,13 +70,12 @@ def main():
                                 param_type = param_type_list[type_idx]
                                 line += "__global " + param_type
                                 line += " *src_" + str(param_index)
-                                if param_index < func_num_params - 1:
-                                        line += ", "
-                                else:
-                                        line += ")\n"
-                        line += "{\n"
+                                line += ", "
                         return_type = func[0]
-                        line += "\t" + return_type[type_idx] + " val = "
+                        line += "__global " + return_type[type_idx] + " *dst)\n"
+                        line += "{\n"
+                        line += "\tint gid = get_global_id(0);\n"
+                        line += "\tdst[gid] = "
                         line += func_name + "("
                         for param in range(func_num_params):
                                 line += "src_" + str(param) + "[0]"

@@ -86,6 +86,17 @@ def dis_bc(file_name):
         runCommand(cmd_dis_bc.split())
 
 
+def amd_cpl(file_name):
+    if os.path.isfile(file_name + ".cl"):
+        # Command to disassemble bitcode
+        amd_cpl = "../../../multi2sim-4.2/bin/m2c --amd"
+        amd_cpl += " --amd-dump-all --amd-device 13 "
+        cmd_amd_cpl = amd_cpl + file_name + ".cl"
+        cmd_amd_cpl_cleanup = "rm -rf /tmp/*.clp && rm -rf /tmp/*_amd_files"
+        runCommand(cmd_amd_cpl.split())
+        runCommand(cmd_amd_cpl_cleanup.split())
+
+
 def main():
 
         # Commands
@@ -95,6 +106,7 @@ def main():
                         file_name = os.path.splitext(file)[0]
 
                         # Execute commands
+                        amd_cpl(file_name)
                         gen_ir(file_name)
                         rnm_ir(file_name)
                         asm_ir(file_name)
