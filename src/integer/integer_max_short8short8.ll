@@ -13,17 +13,19 @@ define void @integer_max_short8short8(<8 x i16> addrspace(1)* %src_0, <8 x i16> 
   store <8 x i16> addrspace(1)* %dst, <8 x i16> addrspace(1)** %tmp_3, align 4
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_4, i32* %gid, align 4
-  %tmp_5 = load <8 x i16> addrspace(1)** %tmp_1, align 4
-  %tmp_6 = getelementptr inbounds <8 x i16> addrspace(1)* %tmp_5, i32 0
-  %tmp_7 = load <8 x i16> addrspace(1)* %tmp_6, align 16
-  %tmp_8 = load <8 x i16> addrspace(1)** %tmp_2, align 4
-  %tmp_9 = getelementptr inbounds <8 x i16> addrspace(1)* %tmp_8, i32 0
-  %tmp_10 = load <8 x i16> addrspace(1)* %tmp_9, align 16
-  %tmp_11 = call <8 x i16> @_Z3maxDv8_sS_(<8 x i16> %tmp_7, <8 x i16> %tmp_10)
-  %tmp_12 = load i32* %gid, align 4
-  %tmp_13 = load <8 x i16> addrspace(1)** %tmp_3, align 4
-  %tmp_14 = getelementptr inbounds <8 x i16> addrspace(1)* %tmp_13, i32 %tmp_12
-  store <8 x i16> %tmp_11, <8 x i16> addrspace(1)* %tmp_14, align 16
+  %tmp_5 = load i32* %gid, align 4
+  %tmp_6 = load <8 x i16> addrspace(1)** %tmp_1, align 4
+  %tmp_7 = getelementptr inbounds <8 x i16> addrspace(1)* %tmp_6, i32 %tmp_5
+  %tmp_8 = load <8 x i16> addrspace(1)* %tmp_7, align 16
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load <8 x i16> addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds <8 x i16> addrspace(1)* %tmp_10, i32 %tmp_9
+  %tmp_12 = load <8 x i16> addrspace(1)* %tmp_11, align 16
+  %tmp_13 = call <8 x i16> @_Z3maxDv8_sS_(<8 x i16> %tmp_8, <8 x i16> %tmp_12)
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load <8 x i16> addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds <8 x i16> addrspace(1)* %tmp_15, i32 %tmp_14
+  store <8 x i16> %tmp_13, <8 x i16> addrspace(1)* %tmp_16, align 16
   ret void
 }
 

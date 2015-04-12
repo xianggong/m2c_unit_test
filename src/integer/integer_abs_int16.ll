@@ -11,14 +11,15 @@ define void @integer_abs_int16(<16 x i32> addrspace(1)* %src_0, <16 x i32> addrs
   store <16 x i32> addrspace(1)* %dst, <16 x i32> addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load <16 x i32> addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load <16 x i32> addrspace(1)* %tmp_5, align 64
-  %tmp_7 = call <16 x i32> @_Z3absDv16_i(<16 x i32> %tmp_6)
-  %tmp_8 = load i32* %gid, align 4
-  %tmp_9 = load <16 x i32> addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_9, i32 %tmp_8
-  store <16 x i32> %tmp_7, <16 x i32> addrspace(1)* %tmp_10, align 64
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load <16 x i32> addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load <16 x i32> addrspace(1)* %tmp_6, align 64
+  %tmp_8 = call <16 x i32> @_Z3absDv16_i(<16 x i32> %tmp_7)
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load <16 x i32> addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_10, i32 %tmp_9
+  store <16 x i32> %tmp_8, <16 x i32> addrspace(1)* %tmp_11, align 64
   ret void
 }
 

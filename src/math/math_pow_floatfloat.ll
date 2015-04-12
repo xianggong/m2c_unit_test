@@ -13,17 +13,19 @@ define void @math_pow_floatfloat(float addrspace(1)* %src_0, float addrspace(1)*
   store float addrspace(1)* %dst, float addrspace(1)** %tmp_3, align 4
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_4, i32* %gid, align 4
-  %tmp_5 = load float addrspace(1)** %tmp_1, align 4
-  %tmp_6 = getelementptr inbounds float addrspace(1)* %tmp_5, i32 0
-  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
-  %tmp_8 = load float addrspace(1)** %tmp_2, align 4
-  %tmp_9 = getelementptr inbounds float addrspace(1)* %tmp_8, i32 0
-  %tmp_10 = load float addrspace(1)* %tmp_9, align 4
-  %tmp_11 = call float @llvm.pow.f32(float %tmp_7, float %tmp_10)
-  %tmp_12 = load i32* %gid, align 4
-  %tmp_13 = load float addrspace(1)** %tmp_3, align 4
-  %tmp_14 = getelementptr inbounds float addrspace(1)* %tmp_13, i32 %tmp_12
-  store float %tmp_11, float addrspace(1)* %tmp_14, align 4
+  %tmp_5 = load i32* %gid, align 4
+  %tmp_6 = load float addrspace(1)** %tmp_1, align 4
+  %tmp_7 = getelementptr inbounds float addrspace(1)* %tmp_6, i32 %tmp_5
+  %tmp_8 = load float addrspace(1)* %tmp_7, align 4
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load float addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds float addrspace(1)* %tmp_10, i32 %tmp_9
+  %tmp_12 = load float addrspace(1)* %tmp_11, align 4
+  %tmp_13 = call float @llvm.pow.f32(float %tmp_8, float %tmp_12)
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load float addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds float addrspace(1)* %tmp_15, i32 %tmp_14
+  store float %tmp_13, float addrspace(1)* %tmp_16, align 4
   ret void
 }
 

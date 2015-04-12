@@ -13,20 +13,22 @@ define void @math_powr_floatfloat(float addrspace(1)* %src_0, float addrspace(1)
   store float addrspace(1)* %dst, float addrspace(1)** %tmp_3, align 4
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_4, i32* %gid, align 4
-  %tmp_5 = load float addrspace(1)** %tmp_1, align 4
-  %tmp_6 = getelementptr inbounds float addrspace(1)* %tmp_5, i32 0
-  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
-  %tmp_8 = fpext float %tmp_7 to double
-  %tmp_9 = load float addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds float addrspace(1)* %tmp_9, i32 0
-  %tmp_11 = load float addrspace(1)* %tmp_10, align 4
-  %tmp_12 = fpext float %tmp_11 to double
-  %tmp_13 = call i32 bitcast (i32 (...)* @powr to i32 (double, double)*)(double %tmp_8, double %tmp_12)
-  %tmp_14 = sitofp i32 %tmp_13 to float
-  %tmp_15 = load i32* %gid, align 4
-  %tmp_16 = load float addrspace(1)** %tmp_3, align 4
-  %tmp_17 = getelementptr inbounds float addrspace(1)* %tmp_16, i32 %tmp_15
-  store float %tmp_14, float addrspace(1)* %tmp_17, align 4
+  %tmp_5 = load i32* %gid, align 4
+  %tmp_6 = load float addrspace(1)** %tmp_1, align 4
+  %tmp_7 = getelementptr inbounds float addrspace(1)* %tmp_6, i32 %tmp_5
+  %tmp_8 = load float addrspace(1)* %tmp_7, align 4
+  %tmp_9 = fpext float %tmp_8 to double
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load float addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds float addrspace(1)* %tmp_11, i32 %tmp_10
+  %tmp_13 = load float addrspace(1)* %tmp_12, align 4
+  %tmp_14 = fpext float %tmp_13 to double
+  %tmp_15 = call i32 bitcast (i32 (...)* @powr to i32 (double, double)*)(double %tmp_9, double %tmp_14)
+  %tmp_16 = sitofp i32 %tmp_15 to float
+  %tmp_17 = load i32* %gid, align 4
+  %tmp_18 = load float addrspace(1)** %tmp_3, align 4
+  %tmp_19 = getelementptr inbounds float addrspace(1)* %tmp_18, i32 %tmp_17
+  store float %tmp_16, float addrspace(1)* %tmp_19, align 4
   ret void
 }
 

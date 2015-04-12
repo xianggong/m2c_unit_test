@@ -168,7 +168,7 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_acosh_float.cl:6:13: warning: implicitly declaring library function 'acosh' with type 'double (double)'
-        dst[gid] = acosh(src_0[0]);
+        dst[gid] = acosh(src_0[gid]);
                    ^
 math_acosh_float.cl:6:13: note: please include the header <math.h> or explicitly provide a declaration for 'acosh'
 17 warnings generated.

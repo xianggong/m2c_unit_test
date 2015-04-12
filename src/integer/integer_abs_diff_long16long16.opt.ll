@@ -5,13 +5,13 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_abs_diff_long16long16(<16 x i64> addrspace(1)* %src_0, <16 x i64> addrspace(1)* %src_1, <16 x i64> addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds <16 x i64> addrspace(1)* %src_0, i32 0
-  %tmp_7 = load <16 x i64> addrspace(1)* %tmp_6, align 128
-  %tmp_9 = getelementptr inbounds <16 x i64> addrspace(1)* %src_1, i32 0
-  %tmp_10 = load <16 x i64> addrspace(1)* %tmp_9, align 128
-  %tmp_11 = call <16 x i64> @_Z8abs_diffDv16_lS_(<16 x i64> %tmp_7, <16 x i64> %tmp_10)
-  %tmp_14 = getelementptr inbounds <16 x i64> addrspace(1)* %dst, i32 %tmp_4
-  store <16 x i64> %tmp_11, <16 x i64> addrspace(1)* %tmp_14, align 128
+  %tmp_7 = getelementptr inbounds <16 x i64> addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load <16 x i64> addrspace(1)* %tmp_7, align 128
+  %tmp_11 = getelementptr inbounds <16 x i64> addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_12 = load <16 x i64> addrspace(1)* %tmp_11, align 128
+  %tmp_13 = call <16 x i64> @_Z8abs_diffDv16_lS_(<16 x i64> %tmp_8, <16 x i64> %tmp_12)
+  %tmp_16 = getelementptr inbounds <16 x i64> addrspace(1)* %dst, i32 %tmp_4
+  store <16 x i64> %tmp_13, <16 x i64> addrspace(1)* %tmp_16, align 128
   ret void
 }
 

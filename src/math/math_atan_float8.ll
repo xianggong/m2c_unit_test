@@ -11,14 +11,15 @@ define void @math_atan_float8(<8 x float> addrspace(1)* %src_0, <8 x float> addr
   store <8 x float> addrspace(1)* %dst, <8 x float> addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load <8 x float> addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load <8 x float> addrspace(1)* %tmp_5, align 32
-  %tmp_7 = call <8 x float> @_Z4atanDv8_f(<8 x float> %tmp_6)
-  %tmp_8 = load i32* %gid, align 4
-  %tmp_9 = load <8 x float> addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_9, i32 %tmp_8
-  store <8 x float> %tmp_7, <8 x float> addrspace(1)* %tmp_10, align 32
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load <8 x float> addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load <8 x float> addrspace(1)* %tmp_6, align 32
+  %tmp_8 = call <8 x float> @_Z4atanDv8_f(<8 x float> %tmp_7)
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load <8 x float> addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_10, i32 %tmp_9
+  store <8 x float> %tmp_8, <8 x float> addrspace(1)* %tmp_11, align 32
   ret void
 }
 

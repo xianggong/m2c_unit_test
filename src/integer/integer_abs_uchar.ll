@@ -11,14 +11,15 @@ define void @integer_abs_uchar(i8 addrspace(1)* %src_0, i8 addrspace(1)* %dst) #
   store i8 addrspace(1)* %dst, i8 addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load i8 addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds i8 addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load i8 addrspace(1)* %tmp_5, align 1
-  %tmp_7 = call zeroext i8 @_Z3absh(i8 zeroext %tmp_6)
-  %tmp_8 = load i32* %gid, align 4
-  %tmp_9 = load i8 addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds i8 addrspace(1)* %tmp_9, i32 %tmp_8
-  store i8 %tmp_7, i8 addrspace(1)* %tmp_10, align 1
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load i8 addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds i8 addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load i8 addrspace(1)* %tmp_6, align 1
+  %tmp_8 = call zeroext i8 @_Z3absh(i8 zeroext %tmp_7)
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load i8 addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds i8 addrspace(1)* %tmp_10, i32 %tmp_9
+  store i8 %tmp_8, i8 addrspace(1)* %tmp_11, align 1
   ret void
 }
 

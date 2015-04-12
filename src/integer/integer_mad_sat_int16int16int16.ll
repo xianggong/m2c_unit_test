@@ -15,20 +15,23 @@ define void @integer_mad_sat_int16int16int16(<16 x i32> addrspace(1)* %src_0, <1
   store <16 x i32> addrspace(1)* %dst, <16 x i32> addrspace(1)** %tmp_4, align 4
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_5, i32* %gid, align 4
-  %tmp_6 = load <16 x i32> addrspace(1)** %tmp_1, align 4
-  %tmp_7 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_6, i32 0
-  %tmp_8 = load <16 x i32> addrspace(1)* %tmp_7, align 64
-  %tmp_9 = load <16 x i32> addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_9, i32 0
-  %tmp_11 = load <16 x i32> addrspace(1)* %tmp_10, align 64
-  %tmp_12 = load <16 x i32> addrspace(1)** %tmp_3, align 4
-  %tmp_13 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_12, i32 0
-  %tmp_14 = load <16 x i32> addrspace(1)* %tmp_13, align 64
-  %tmp_15 = call <16 x i32> @_Z7mad_satDv16_iS_S_(<16 x i32> %tmp_8, <16 x i32> %tmp_11, <16 x i32> %tmp_14)
-  %tmp_16 = load i32* %gid, align 4
-  %tmp_17 = load <16 x i32> addrspace(1)** %tmp_4, align 4
-  %tmp_18 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_17, i32 %tmp_16
-  store <16 x i32> %tmp_15, <16 x i32> addrspace(1)* %tmp_18, align 64
+  %tmp_6 = load i32* %gid, align 4
+  %tmp_7 = load <16 x i32> addrspace(1)** %tmp_1, align 4
+  %tmp_8 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_7, i32 %tmp_6
+  %tmp_9 = load <16 x i32> addrspace(1)* %tmp_8, align 64
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load <16 x i32> addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_11, i32 %tmp_10
+  %tmp_13 = load <16 x i32> addrspace(1)* %tmp_12, align 64
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load <16 x i32> addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_15, i32 %tmp_14
+  %tmp_17 = load <16 x i32> addrspace(1)* %tmp_16, align 64
+  %tmp_18 = call <16 x i32> @_Z7mad_satDv16_iS_S_(<16 x i32> %tmp_9, <16 x i32> %tmp_13, <16 x i32> %tmp_17)
+  %tmp_19 = load i32* %gid, align 4
+  %tmp_20 = load <16 x i32> addrspace(1)** %tmp_4, align 4
+  %tmp_21 = getelementptr inbounds <16 x i32> addrspace(1)* %tmp_20, i32 %tmp_19
+  store <16 x i32> %tmp_18, <16 x i32> addrspace(1)* %tmp_21, align 64
   ret void
 }
 

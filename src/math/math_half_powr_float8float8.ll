@@ -13,20 +13,22 @@ define void @math_half_powr_float8float8(<8 x float> addrspace(1)* %src_0, <8 x 
   store <8 x float> addrspace(1)* %dst, <8 x float> addrspace(1)** %tmp_3, align 4
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_4, i32* %gid, align 4
-  %tmp_5 = load <8 x float> addrspace(1)** %tmp_1, align 4
-  %tmp_6 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_5, i32 0
-  %tmp_7 = load <8 x float> addrspace(1)* %tmp_6, align 32
-  %tmp_8 = load <8 x float> addrspace(1)** %tmp_2, align 4
-  %tmp_9 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_8, i32 0
-  %tmp_10 = load <8 x float> addrspace(1)* %tmp_9, align 32
-  %tmp_11 = call i32 bitcast (i32 (...)* @half_powr to i32 (<8 x float>, <8 x float>)*)(<8 x float> %tmp_7, <8 x float> %tmp_10)
-  %tmp_12 = sitofp i32 %tmp_11 to float
-  %tmp_13 = insertelement <8 x float> undef, float %tmp_12, i32 0
-  %tmp_14 = shufflevector <8 x float> %tmp_13, <8 x float> undef, <8 x i32> zeroinitializer
-  %tmp_15 = load i32* %gid, align 4
-  %tmp_16 = load <8 x float> addrspace(1)** %tmp_3, align 4
-  %tmp_17 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_16, i32 %tmp_15
-  store <8 x float> %tmp_14, <8 x float> addrspace(1)* %tmp_17, align 32
+  %tmp_5 = load i32* %gid, align 4
+  %tmp_6 = load <8 x float> addrspace(1)** %tmp_1, align 4
+  %tmp_7 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_6, i32 %tmp_5
+  %tmp_8 = load <8 x float> addrspace(1)* %tmp_7, align 32
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load <8 x float> addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_10, i32 %tmp_9
+  %tmp_12 = load <8 x float> addrspace(1)* %tmp_11, align 32
+  %tmp_13 = call i32 bitcast (i32 (...)* @half_powr to i32 (<8 x float>, <8 x float>)*)(<8 x float> %tmp_8, <8 x float> %tmp_12)
+  %tmp_14 = sitofp i32 %tmp_13 to float
+  %tmp_15 = insertelement <8 x float> undef, float %tmp_14, i32 0
+  %tmp_16 = shufflevector <8 x float> %tmp_15, <8 x float> undef, <8 x i32> zeroinitializer
+  %tmp_17 = load i32* %gid, align 4
+  %tmp_18 = load <8 x float> addrspace(1)** %tmp_3, align 4
+  %tmp_19 = getelementptr inbounds <8 x float> addrspace(1)* %tmp_18, i32 %tmp_17
+  store <8 x float> %tmp_16, <8 x float> addrspace(1)* %tmp_19, align 32
   ret void
 }
 

@@ -168,6 +168,6 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_half_powr_floatfloat.cl:6:13: warning: implicit declaration of function 'half_powr' is invalid in C99 [-Wimplicit-function-declaration]
-        dst[gid] = half_powr(src_0[0], src_1[0]);
+        dst[gid] = half_powr(src_0[gid], src_1[gid]);
                    ^
 17 warnings generated.

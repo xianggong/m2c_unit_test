@@ -73,7 +73,7 @@ def main():
                         line += "\tdst[gid] = "
                         line += func_name + "("
                         for param in range(func_num_params):
-                                line += "src_" + str(param) + "[0]"
+                                line += "src_" + str(param) + "[gid]"
                                 if param != (func_num_params - 1):
                                         line += ", "
                         line += ");\n"

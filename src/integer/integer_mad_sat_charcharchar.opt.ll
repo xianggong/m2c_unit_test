@@ -5,15 +5,15 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_mad_sat_charcharchar(i8 addrspace(1)* %src_0, i8 addrspace(1)* %src_1, i8 addrspace(1)* %src_2, i8 addrspace(1)* %dst) #0 {
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_7 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 0
-  %tmp_8 = load i8 addrspace(1)* %tmp_7, align 1
-  %tmp_10 = getelementptr inbounds i8 addrspace(1)* %src_1, i32 0
-  %tmp_11 = load i8 addrspace(1)* %tmp_10, align 1
-  %tmp_13 = getelementptr inbounds i8 addrspace(1)* %src_2, i32 0
-  %tmp_14 = load i8 addrspace(1)* %tmp_13, align 1
-  %tmp_15 = call signext i8 @_Z7mad_satccc(i8 signext %tmp_8, i8 signext %tmp_11, i8 signext %tmp_14)
-  %tmp_18 = getelementptr inbounds i8 addrspace(1)* %dst, i32 %tmp_5
-  store i8 %tmp_15, i8 addrspace(1)* %tmp_18, align 1
+  %tmp_8 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 %tmp_5
+  %tmp_9 = load i8 addrspace(1)* %tmp_8, align 1
+  %tmp_12 = getelementptr inbounds i8 addrspace(1)* %src_1, i32 %tmp_5
+  %tmp_13 = load i8 addrspace(1)* %tmp_12, align 1
+  %tmp_16 = getelementptr inbounds i8 addrspace(1)* %src_2, i32 %tmp_5
+  %tmp_17 = load i8 addrspace(1)* %tmp_16, align 1
+  %tmp_18 = call signext i8 @_Z7mad_satccc(i8 signext %tmp_9, i8 signext %tmp_13, i8 signext %tmp_17)
+  %tmp_21 = getelementptr inbounds i8 addrspace(1)* %dst, i32 %tmp_5
+  store i8 %tmp_18, i8 addrspace(1)* %tmp_21, align 1
   ret void
 }
 

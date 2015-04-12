@@ -5,15 +5,15 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_rootn_floatint(float addrspace(1)* %src_0, i32 addrspace(1)* %src_1, float addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds float addrspace(1)* %src_0, i32 0
-  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
-  %tmp_8 = fpext float %tmp_7 to double
-  %tmp_10 = getelementptr inbounds i32 addrspace(1)* %src_1, i32 0
-  %tmp_11 = load i32 addrspace(1)* %tmp_10, align 4
-  %tmp_12 = call i32 bitcast (i32 (...)* @rootn to i32 (double, i32)*)(double %tmp_8, i32 %tmp_11)
-  %tmp_13 = sitofp i32 %tmp_12 to float
-  %tmp_16 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_4
-  store float %tmp_13, float addrspace(1)* %tmp_16, align 4
+  %tmp_7 = getelementptr inbounds float addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load float addrspace(1)* %tmp_7, align 4
+  %tmp_9 = fpext float %tmp_8 to double
+  %tmp_12 = getelementptr inbounds i32 addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_13 = load i32 addrspace(1)* %tmp_12, align 4
+  %tmp_14 = call i32 bitcast (i32 (...)* @rootn to i32 (double, i32)*)(double %tmp_9, i32 %tmp_13)
+  %tmp_15 = sitofp i32 %tmp_14 to float
+  %tmp_18 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_4
+  store float %tmp_15, float addrspace(1)* %tmp_18, align 4
   ret void
 }
 

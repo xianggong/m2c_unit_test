@@ -5,15 +5,15 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_mad_floatfloatfloat(float addrspace(1)* %src_0, float addrspace(1)* %src_1, float addrspace(1)* %src_2, float addrspace(1)* %dst) #0 {
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_7 = getelementptr inbounds float addrspace(1)* %src_0, i32 0
-  %tmp_8 = load float addrspace(1)* %tmp_7, align 4
-  %tmp_10 = getelementptr inbounds float addrspace(1)* %src_1, i32 0
-  %tmp_11 = load float addrspace(1)* %tmp_10, align 4
-  %tmp_13 = getelementptr inbounds float addrspace(1)* %src_2, i32 0
-  %tmp_14 = load float addrspace(1)* %tmp_13, align 4
-  %tmp_15 = call float @_Z3madfff(float %tmp_8, float %tmp_11, float %tmp_14)
-  %tmp_18 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_5
-  store float %tmp_15, float addrspace(1)* %tmp_18, align 4
+  %tmp_8 = getelementptr inbounds float addrspace(1)* %src_0, i32 %tmp_5
+  %tmp_9 = load float addrspace(1)* %tmp_8, align 4
+  %tmp_12 = getelementptr inbounds float addrspace(1)* %src_1, i32 %tmp_5
+  %tmp_13 = load float addrspace(1)* %tmp_12, align 4
+  %tmp_16 = getelementptr inbounds float addrspace(1)* %src_2, i32 %tmp_5
+  %tmp_17 = load float addrspace(1)* %tmp_16, align 4
+  %tmp_18 = call float @_Z3madfff(float %tmp_9, float %tmp_13, float %tmp_17)
+  %tmp_21 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_5
+  store float %tmp_18, float addrspace(1)* %tmp_21, align 4
   ret void
 }
 

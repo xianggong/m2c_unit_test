@@ -11,16 +11,17 @@ define void @math_half_sqrt_float(float addrspace(1)* %src_0, float addrspace(1)
   store float addrspace(1)* %dst, float addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load float addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds float addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load float addrspace(1)* %tmp_5, align 4
-  %tmp_7 = fpext float %tmp_6 to double
-  %tmp_8 = call i32 bitcast (i32 (...)* @half_sqrt to i32 (double)*)(double %tmp_7)
-  %tmp_9 = sitofp i32 %tmp_8 to float
-  %tmp_10 = load i32* %gid, align 4
-  %tmp_11 = load float addrspace(1)** %tmp_2, align 4
-  %tmp_12 = getelementptr inbounds float addrspace(1)* %tmp_11, i32 %tmp_10
-  store float %tmp_9, float addrspace(1)* %tmp_12, align 4
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load float addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds float addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
+  %tmp_8 = fpext float %tmp_7 to double
+  %tmp_9 = call i32 bitcast (i32 (...)* @half_sqrt to i32 (double)*)(double %tmp_8)
+  %tmp_10 = sitofp i32 %tmp_9 to float
+  %tmp_11 = load i32* %gid, align 4
+  %tmp_12 = load float addrspace(1)** %tmp_2, align 4
+  %tmp_13 = getelementptr inbounds float addrspace(1)* %tmp_12, i32 %tmp_11
+  store float %tmp_10, float addrspace(1)* %tmp_13, align 4
   ret void
 }
 

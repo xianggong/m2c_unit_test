@@ -168,7 +168,7 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_native_powr_float16.cl:6:13: error: no matching function for call to '__clc_pow'
-        dst[gid] = native_powr(src_0[0]);
+        dst[gid] = native_powr(src_0[gid]);
                    ^~~~~~~~~~~
 ../../inc/clc/math/native_powr.h:1:21: note: expanded from macro 'native_powr'
 #define native_powr pow

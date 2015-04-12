@@ -15,20 +15,23 @@ define void @common_smoothstep_float4float4float4(<4 x float> addrspace(1)* %src
   store <4 x float> addrspace(1)* %dst, <4 x float> addrspace(1)** %tmp_4, align 4
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_5, i32* %gid, align 4
-  %tmp_6 = load <4 x float> addrspace(1)** %tmp_1, align 4
-  %tmp_7 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_6, i32 0
-  %tmp_8 = load <4 x float> addrspace(1)* %tmp_7, align 16
-  %tmp_9 = load <4 x float> addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_9, i32 0
-  %tmp_11 = load <4 x float> addrspace(1)* %tmp_10, align 16
-  %tmp_12 = load <4 x float> addrspace(1)** %tmp_3, align 4
-  %tmp_13 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_12, i32 0
-  %tmp_14 = load <4 x float> addrspace(1)* %tmp_13, align 16
-  %tmp_15 = call <4 x float> @_Z10smoothstepDv4_fS_S_(<4 x float> %tmp_8, <4 x float> %tmp_11, <4 x float> %tmp_14)
-  %tmp_16 = load i32* %gid, align 4
-  %tmp_17 = load <4 x float> addrspace(1)** %tmp_4, align 4
-  %tmp_18 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_17, i32 %tmp_16
-  store <4 x float> %tmp_15, <4 x float> addrspace(1)* %tmp_18, align 16
+  %tmp_6 = load i32* %gid, align 4
+  %tmp_7 = load <4 x float> addrspace(1)** %tmp_1, align 4
+  %tmp_8 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_7, i32 %tmp_6
+  %tmp_9 = load <4 x float> addrspace(1)* %tmp_8, align 16
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load <4 x float> addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_11, i32 %tmp_10
+  %tmp_13 = load <4 x float> addrspace(1)* %tmp_12, align 16
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load <4 x float> addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_15, i32 %tmp_14
+  %tmp_17 = load <4 x float> addrspace(1)* %tmp_16, align 16
+  %tmp_18 = call <4 x float> @_Z10smoothstepDv4_fS_S_(<4 x float> %tmp_9, <4 x float> %tmp_13, <4 x float> %tmp_17)
+  %tmp_19 = load i32* %gid, align 4
+  %tmp_20 = load <4 x float> addrspace(1)** %tmp_4, align 4
+  %tmp_21 = getelementptr inbounds <4 x float> addrspace(1)* %tmp_20, i32 %tmp_19
+  store <4 x float> %tmp_18, <4 x float> addrspace(1)* %tmp_21, align 16
   ret void
 }
 

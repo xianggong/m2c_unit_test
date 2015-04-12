@@ -5,13 +5,13 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_max_long4long4(<4 x i64> addrspace(1)* %src_0, <4 x i64> addrspace(1)* %src_1, <4 x i64> addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds <4 x i64> addrspace(1)* %src_0, i32 0
-  %tmp_7 = load <4 x i64> addrspace(1)* %tmp_6, align 32
-  %tmp_9 = getelementptr inbounds <4 x i64> addrspace(1)* %src_1, i32 0
-  %tmp_10 = load <4 x i64> addrspace(1)* %tmp_9, align 32
-  %tmp_11 = call <4 x i64> @_Z3maxDv4_lS_(<4 x i64> %tmp_7, <4 x i64> %tmp_10)
-  %tmp_14 = getelementptr inbounds <4 x i64> addrspace(1)* %dst, i32 %tmp_4
-  store <4 x i64> %tmp_11, <4 x i64> addrspace(1)* %tmp_14, align 32
+  %tmp_7 = getelementptr inbounds <4 x i64> addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load <4 x i64> addrspace(1)* %tmp_7, align 32
+  %tmp_11 = getelementptr inbounds <4 x i64> addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_12 = load <4 x i64> addrspace(1)* %tmp_11, align 32
+  %tmp_13 = call <4 x i64> @_Z3maxDv4_lS_(<4 x i64> %tmp_8, <4 x i64> %tmp_12)
+  %tmp_16 = getelementptr inbounds <4 x i64> addrspace(1)* %dst, i32 %tmp_4
+  store <4 x i64> %tmp_13, <4 x i64> addrspace(1)* %tmp_16, align 32
   ret void
 }
 

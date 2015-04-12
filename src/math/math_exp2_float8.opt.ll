@@ -5,11 +5,11 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_exp2_float8(<8 x float> addrspace(1)* %src_0, <8 x float> addrspace(1)* %dst) #0 {
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_5 = getelementptr inbounds <8 x float> addrspace(1)* %src_0, i32 0
-  %tmp_6 = load <8 x float> addrspace(1)* %tmp_5, align 32
-  %tmp_7 = call <8 x float> @llvm.exp2.v8f32(<8 x float> %tmp_6)
-  %tmp_10 = getelementptr inbounds <8 x float> addrspace(1)* %dst, i32 %tmp_3
-  store <8 x float> %tmp_7, <8 x float> addrspace(1)* %tmp_10, align 32
+  %tmp_6 = getelementptr inbounds <8 x float> addrspace(1)* %src_0, i32 %tmp_3
+  %tmp_7 = load <8 x float> addrspace(1)* %tmp_6, align 32
+  %tmp_8 = call <8 x float> @llvm.exp2.v8f32(<8 x float> %tmp_7)
+  %tmp_11 = getelementptr inbounds <8 x float> addrspace(1)* %dst, i32 %tmp_3
+  store <8 x float> %tmp_8, <8 x float> addrspace(1)* %tmp_11, align 32
   ret void
 }
 

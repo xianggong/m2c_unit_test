@@ -13,17 +13,19 @@ define void @integer_hadd_uintuint(i32 addrspace(1)* %src_0, i32 addrspace(1)* %
   store i32 addrspace(1)* %dst, i32 addrspace(1)** %tmp_3, align 4
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_4, i32* %gid, align 4
-  %tmp_5 = load i32 addrspace(1)** %tmp_1, align 4
-  %tmp_6 = getelementptr inbounds i32 addrspace(1)* %tmp_5, i32 0
-  %tmp_7 = load i32 addrspace(1)* %tmp_6, align 4
-  %tmp_8 = load i32 addrspace(1)** %tmp_2, align 4
-  %tmp_9 = getelementptr inbounds i32 addrspace(1)* %tmp_8, i32 0
-  %tmp_10 = load i32 addrspace(1)* %tmp_9, align 4
-  %tmp_11 = call i32 @_Z4haddjj(i32 %tmp_7, i32 %tmp_10)
-  %tmp_12 = load i32* %gid, align 4
-  %tmp_13 = load i32 addrspace(1)** %tmp_3, align 4
-  %tmp_14 = getelementptr inbounds i32 addrspace(1)* %tmp_13, i32 %tmp_12
-  store i32 %tmp_11, i32 addrspace(1)* %tmp_14, align 4
+  %tmp_5 = load i32* %gid, align 4
+  %tmp_6 = load i32 addrspace(1)** %tmp_1, align 4
+  %tmp_7 = getelementptr inbounds i32 addrspace(1)* %tmp_6, i32 %tmp_5
+  %tmp_8 = load i32 addrspace(1)* %tmp_7, align 4
+  %tmp_9 = load i32* %gid, align 4
+  %tmp_10 = load i32 addrspace(1)** %tmp_2, align 4
+  %tmp_11 = getelementptr inbounds i32 addrspace(1)* %tmp_10, i32 %tmp_9
+  %tmp_12 = load i32 addrspace(1)* %tmp_11, align 4
+  %tmp_13 = call i32 @_Z4haddjj(i32 %tmp_8, i32 %tmp_12)
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load i32 addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds i32 addrspace(1)* %tmp_15, i32 %tmp_14
+  store i32 %tmp_13, i32 addrspace(1)* %tmp_16, align 4
   ret void
 }
 

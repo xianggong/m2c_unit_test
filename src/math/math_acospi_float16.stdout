@@ -168,6 +168,6 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_acospi_float16.cl:6:13: warning: implicit declaration of function 'acospi' is invalid in C99 [-Wimplicit-function-declaration]
-        dst[gid] = acospi(src_0[0]);
+        dst[gid] = acospi(src_0[gid]);
                    ^
 17 warnings generated.

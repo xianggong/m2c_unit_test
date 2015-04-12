@@ -5,13 +5,13 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_rhadd_char2char2(<2 x i8> addrspace(1)* %src_0, <2 x i8> addrspace(1)* %src_1, <2 x i8> addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds <2 x i8> addrspace(1)* %src_0, i32 0
-  %tmp_7 = load <2 x i8> addrspace(1)* %tmp_6, align 2
-  %tmp_9 = getelementptr inbounds <2 x i8> addrspace(1)* %src_1, i32 0
-  %tmp_10 = load <2 x i8> addrspace(1)* %tmp_9, align 2
-  %tmp_11 = call <2 x i8> @_Z5rhaddDv2_cS_(<2 x i8> %tmp_7, <2 x i8> %tmp_10)
-  %tmp_14 = getelementptr inbounds <2 x i8> addrspace(1)* %dst, i32 %tmp_4
-  store <2 x i8> %tmp_11, <2 x i8> addrspace(1)* %tmp_14, align 2
+  %tmp_7 = getelementptr inbounds <2 x i8> addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load <2 x i8> addrspace(1)* %tmp_7, align 2
+  %tmp_11 = getelementptr inbounds <2 x i8> addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_12 = load <2 x i8> addrspace(1)* %tmp_11, align 2
+  %tmp_13 = call <2 x i8> @_Z5rhaddDv2_cS_(<2 x i8> %tmp_8, <2 x i8> %tmp_12)
+  %tmp_16 = getelementptr inbounds <2 x i8> addrspace(1)* %dst, i32 %tmp_4
+  store <2 x i8> %tmp_13, <2 x i8> addrspace(1)* %tmp_16, align 2
   ret void
 }
 

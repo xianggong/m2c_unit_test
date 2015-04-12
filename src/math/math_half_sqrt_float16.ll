@@ -11,17 +11,18 @@ define void @math_half_sqrt_float16(<16 x float> addrspace(1)* %src_0, <16 x flo
   store <16 x float> addrspace(1)* %dst, <16 x float> addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load <16 x float> addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds <16 x float> addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load <16 x float> addrspace(1)* %tmp_5, align 64
-  %tmp_7 = call i32 bitcast (i32 (...)* @half_sqrt to i32 (<16 x float>)*)(<16 x float> %tmp_6)
-  %tmp_8 = sitofp i32 %tmp_7 to float
-  %tmp_9 = insertelement <16 x float> undef, float %tmp_8, i32 0
-  %tmp_10 = shufflevector <16 x float> %tmp_9, <16 x float> undef, <16 x i32> zeroinitializer
-  %tmp_11 = load i32* %gid, align 4
-  %tmp_12 = load <16 x float> addrspace(1)** %tmp_2, align 4
-  %tmp_13 = getelementptr inbounds <16 x float> addrspace(1)* %tmp_12, i32 %tmp_11
-  store <16 x float> %tmp_10, <16 x float> addrspace(1)* %tmp_13, align 64
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load <16 x float> addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds <16 x float> addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load <16 x float> addrspace(1)* %tmp_6, align 64
+  %tmp_8 = call i32 bitcast (i32 (...)* @half_sqrt to i32 (<16 x float>)*)(<16 x float> %tmp_7)
+  %tmp_9 = sitofp i32 %tmp_8 to float
+  %tmp_10 = insertelement <16 x float> undef, float %tmp_9, i32 0
+  %tmp_11 = shufflevector <16 x float> %tmp_10, <16 x float> undef, <16 x i32> zeroinitializer
+  %tmp_12 = load i32* %gid, align 4
+  %tmp_13 = load <16 x float> addrspace(1)** %tmp_2, align 4
+  %tmp_14 = getelementptr inbounds <16 x float> addrspace(1)* %tmp_13, i32 %tmp_12
+  store <16 x float> %tmp_11, <16 x float> addrspace(1)* %tmp_14, align 64
   ret void
 }
 

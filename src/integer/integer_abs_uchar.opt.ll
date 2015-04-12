@@ -5,11 +5,11 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_abs_uchar(i8 addrspace(1)* %src_0, i8 addrspace(1)* %dst) #0 {
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_5 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 0
-  %tmp_6 = load i8 addrspace(1)* %tmp_5, align 1
-  %tmp_7 = call zeroext i8 @_Z3absh(i8 zeroext %tmp_6)
-  %tmp_10 = getelementptr inbounds i8 addrspace(1)* %dst, i32 %tmp_3
-  store i8 %tmp_7, i8 addrspace(1)* %tmp_10, align 1
+  %tmp_6 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 %tmp_3
+  %tmp_7 = load i8 addrspace(1)* %tmp_6, align 1
+  %tmp_8 = call zeroext i8 @_Z3absh(i8 zeroext %tmp_7)
+  %tmp_11 = getelementptr inbounds i8 addrspace(1)* %dst, i32 %tmp_3
+  store i8 %tmp_8, i8 addrspace(1)* %tmp_11, align 1
   ret void
 }
 

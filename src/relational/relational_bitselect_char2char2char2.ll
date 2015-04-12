@@ -15,20 +15,23 @@ define void @relational_bitselect_char2char2char2(<2 x i8> addrspace(1)* %src_0,
   store <2 x i8> addrspace(1)* %dst, <2 x i8> addrspace(1)** %tmp_4, align 4
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_5, i32* %gid, align 4
-  %tmp_6 = load <2 x i8> addrspace(1)** %tmp_1, align 4
-  %tmp_7 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_6, i32 0
-  %tmp_8 = load <2 x i8> addrspace(1)* %tmp_7, align 2
-  %tmp_9 = load <2 x i8> addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_9, i32 0
-  %tmp_11 = load <2 x i8> addrspace(1)* %tmp_10, align 2
-  %tmp_12 = load <2 x i8> addrspace(1)** %tmp_3, align 4
-  %tmp_13 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_12, i32 0
-  %tmp_14 = load <2 x i8> addrspace(1)* %tmp_13, align 2
-  %tmp_15 = call <2 x i8> @_Z9bitselectDv2_cS_S_(<2 x i8> %tmp_8, <2 x i8> %tmp_11, <2 x i8> %tmp_14)
-  %tmp_16 = load i32* %gid, align 4
-  %tmp_17 = load <2 x i8> addrspace(1)** %tmp_4, align 4
-  %tmp_18 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_17, i32 %tmp_16
-  store <2 x i8> %tmp_15, <2 x i8> addrspace(1)* %tmp_18, align 2
+  %tmp_6 = load i32* %gid, align 4
+  %tmp_7 = load <2 x i8> addrspace(1)** %tmp_1, align 4
+  %tmp_8 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_7, i32 %tmp_6
+  %tmp_9 = load <2 x i8> addrspace(1)* %tmp_8, align 2
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load <2 x i8> addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_11, i32 %tmp_10
+  %tmp_13 = load <2 x i8> addrspace(1)* %tmp_12, align 2
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load <2 x i8> addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_15, i32 %tmp_14
+  %tmp_17 = load <2 x i8> addrspace(1)* %tmp_16, align 2
+  %tmp_18 = call <2 x i8> @_Z9bitselectDv2_cS_S_(<2 x i8> %tmp_9, <2 x i8> %tmp_13, <2 x i8> %tmp_17)
+  %tmp_19 = load i32* %gid, align 4
+  %tmp_20 = load <2 x i8> addrspace(1)** %tmp_4, align 4
+  %tmp_21 = getelementptr inbounds <2 x i8> addrspace(1)* %tmp_20, i32 %tmp_19
+  store <2 x i8> %tmp_18, <2 x i8> addrspace(1)* %tmp_21, align 2
   ret void
 }
 

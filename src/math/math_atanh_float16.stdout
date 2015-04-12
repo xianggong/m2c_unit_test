@@ -168,10 +168,10 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_atanh_float16.cl:6:13: warning: implicitly declaring library function 'atanh' with type 'double (double)'
-        dst[gid] = atanh(src_0[0]);
+        dst[gid] = atanh(src_0[gid]);
                    ^
 math_atanh_float16.cl:6:13: note: please include the header <math.h> or explicitly provide a declaration for 'atanh'
 math_atanh_float16.cl:6:19: error: passing '__global float16' to parameter of incompatible type 'double'
-        dst[gid] = atanh(src_0[0]);
-                         ^~~~~~~~
+        dst[gid] = atanh(src_0[gid]);
+                         ^~~~~~~~~~
 17 warnings and 1 error generated.

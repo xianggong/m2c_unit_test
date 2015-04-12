@@ -168,10 +168,10 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_ldexp_float4.cl:6:13: warning: implicitly declaring library function 'ldexp' with type 'double (double, int)'
-        dst[gid] = ldexp(src_0[0]);
+        dst[gid] = ldexp(src_0[gid]);
                    ^
 math_ldexp_float4.cl:6:13: note: please include the header <math.h> or explicitly provide a declaration for 'ldexp'
-math_ldexp_float4.cl:6:27: error: too few arguments to function call, expected 2, have 1
-        dst[gid] = ldexp(src_0[0]);
-                   ~~~~~         ^
+math_ldexp_float4.cl:6:29: error: too few arguments to function call, expected 2, have 1
+        dst[gid] = ldexp(src_0[gid]);
+                   ~~~~~           ^
 17 warnings and 1 error generated.

@@ -11,15 +11,16 @@ define void @math_log_float(float addrspace(1)* %src_0, float addrspace(1)* %dst
   store float addrspace(1)* %dst, float addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load float addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds float addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load float addrspace(1)* %tmp_5, align 4
-  %tmp_7 = call float @llvm.log2.f32(float %tmp_6)
-  %tmp_8 = fmul float %tmp_7, 0x3FE62E4300000000
-  %tmp_9 = load i32* %gid, align 4
-  %tmp_10 = load float addrspace(1)** %tmp_2, align 4
-  %tmp_11 = getelementptr inbounds float addrspace(1)* %tmp_10, i32 %tmp_9
-  store float %tmp_8, float addrspace(1)* %tmp_11, align 4
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load float addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds float addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
+  %tmp_8 = call float @llvm.log2.f32(float %tmp_7)
+  %tmp_9 = fmul float %tmp_8, 0x3FE62E4300000000
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load float addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds float addrspace(1)* %tmp_11, i32 %tmp_10
+  store float %tmp_9, float addrspace(1)* %tmp_12, align 4
   ret void
 }
 

@@ -168,6 +168,6 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_fmin_float4float.cl:6:11: error: assigning to '__global float' from incompatible type 'float4'
-        dst[gid] = fmin(src_0[0], src_1[0]);
-                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~
+        dst[gid] = fmin(src_0[gid], src_1[gid]);
+                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 16 warnings and 1 error generated.

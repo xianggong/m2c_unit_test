@@ -168,6 +168,6 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_native_log10_float4.cl:6:13: warning: implicit declaration of function 'native_log10' is invalid in C99 [-Wimplicit-function-declaration]
-        dst[gid] = native_log10(src_0[0]);
+        dst[gid] = native_log10(src_0[gid]);
                    ^
 17 warnings generated.

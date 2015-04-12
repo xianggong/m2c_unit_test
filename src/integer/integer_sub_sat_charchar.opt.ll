@@ -5,13 +5,13 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_sub_sat_charchar(i8 addrspace(1)* %src_0, i8 addrspace(1)* %src_1, i8 addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 0
-  %tmp_7 = load i8 addrspace(1)* %tmp_6, align 1
-  %tmp_9 = getelementptr inbounds i8 addrspace(1)* %src_1, i32 0
-  %tmp_10 = load i8 addrspace(1)* %tmp_9, align 1
-  %tmp_11 = call signext i8 @_Z7sub_satcc(i8 signext %tmp_7, i8 signext %tmp_10)
-  %tmp_14 = getelementptr inbounds i8 addrspace(1)* %dst, i32 %tmp_4
-  store i8 %tmp_11, i8 addrspace(1)* %tmp_14, align 1
+  %tmp_7 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load i8 addrspace(1)* %tmp_7, align 1
+  %tmp_11 = getelementptr inbounds i8 addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_12 = load i8 addrspace(1)* %tmp_11, align 1
+  %tmp_13 = call signext i8 @_Z7sub_satcc(i8 signext %tmp_8, i8 signext %tmp_12)
+  %tmp_16 = getelementptr inbounds i8 addrspace(1)* %dst, i32 %tmp_4
+  store i8 %tmp_13, i8 addrspace(1)* %tmp_16, align 1
   ret void
 }
 

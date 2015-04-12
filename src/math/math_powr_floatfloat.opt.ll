@@ -5,16 +5,16 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_powr_floatfloat(float addrspace(1)* %src_0, float addrspace(1)* %src_1, float addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds float addrspace(1)* %src_0, i32 0
-  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
-  %tmp_8 = fpext float %tmp_7 to double
-  %tmp_10 = getelementptr inbounds float addrspace(1)* %src_1, i32 0
-  %tmp_11 = load float addrspace(1)* %tmp_10, align 4
-  %tmp_12 = fpext float %tmp_11 to double
-  %tmp_13 = call i32 bitcast (i32 (...)* @powr to i32 (double, double)*)(double %tmp_8, double %tmp_12)
-  %tmp_14 = sitofp i32 %tmp_13 to float
-  %tmp_17 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_4
-  store float %tmp_14, float addrspace(1)* %tmp_17, align 4
+  %tmp_7 = getelementptr inbounds float addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load float addrspace(1)* %tmp_7, align 4
+  %tmp_9 = fpext float %tmp_8 to double
+  %tmp_12 = getelementptr inbounds float addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_13 = load float addrspace(1)* %tmp_12, align 4
+  %tmp_14 = fpext float %tmp_13 to double
+  %tmp_15 = call i32 bitcast (i32 (...)* @powr to i32 (double, double)*)(double %tmp_9, double %tmp_14)
+  %tmp_16 = sitofp i32 %tmp_15 to float
+  %tmp_19 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_4
+  store float %tmp_16, float addrspace(1)* %tmp_19, align 4
   ret void
 }
 

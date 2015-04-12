@@ -5,14 +5,14 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_half_log_float16(<16 x float> addrspace(1)* %src_0, <16 x float> addrspace(1)* %dst) #0 {
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_5 = getelementptr inbounds <16 x float> addrspace(1)* %src_0, i32 0
-  %tmp_6 = load <16 x float> addrspace(1)* %tmp_5, align 64
-  %tmp_7 = call i32 bitcast (i32 (...)* @half_log to i32 (<16 x float>)*)(<16 x float> %tmp_6)
-  %tmp_8 = sitofp i32 %tmp_7 to float
-  %tmp_9 = insertelement <16 x float> undef, float %tmp_8, i32 0
-  %tmp_10 = shufflevector <16 x float> %tmp_9, <16 x float> undef, <16 x i32> zeroinitializer
-  %tmp_13 = getelementptr inbounds <16 x float> addrspace(1)* %dst, i32 %tmp_3
-  store <16 x float> %tmp_10, <16 x float> addrspace(1)* %tmp_13, align 64
+  %tmp_6 = getelementptr inbounds <16 x float> addrspace(1)* %src_0, i32 %tmp_3
+  %tmp_7 = load <16 x float> addrspace(1)* %tmp_6, align 64
+  %tmp_8 = call i32 bitcast (i32 (...)* @half_log to i32 (<16 x float>)*)(<16 x float> %tmp_7)
+  %tmp_9 = sitofp i32 %tmp_8 to float
+  %tmp_10 = insertelement <16 x float> undef, float %tmp_9, i32 0
+  %tmp_11 = shufflevector <16 x float> %tmp_10, <16 x float> undef, <16 x i32> zeroinitializer
+  %tmp_14 = getelementptr inbounds <16 x float> addrspace(1)* %dst, i32 %tmp_3
+  store <16 x float> %tmp_11, <16 x float> addrspace(1)* %tmp_14, align 64
   ret void
 }
 

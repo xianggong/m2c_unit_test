@@ -168,10 +168,10 @@ _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
 math_remainder_float16float16.cl:6:13: warning: implicitly declaring library function 'remainder' with type 'double (double, double)'
-        dst[gid] = remainder(src_0[0], src_1[0]);
+        dst[gid] = remainder(src_0[gid], src_1[gid]);
                    ^
 math_remainder_float16float16.cl:6:13: note: please include the header <math.h> or explicitly provide a declaration for 'remainder'
 math_remainder_float16float16.cl:6:23: error: passing '__global float16' to parameter of incompatible type 'double'
-        dst[gid] = remainder(src_0[0], src_1[0]);
-                             ^~~~~~~~
+        dst[gid] = remainder(src_0[gid], src_1[gid]);
+                             ^~~~~~~~~~
 17 warnings and 1 error generated.

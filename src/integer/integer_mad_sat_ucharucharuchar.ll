@@ -15,20 +15,23 @@ define void @integer_mad_sat_ucharucharuchar(i8 addrspace(1)* %src_0, i8 addrspa
   store i8 addrspace(1)* %dst, i8 addrspace(1)** %tmp_4, align 4
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_5, i32* %gid, align 4
-  %tmp_6 = load i8 addrspace(1)** %tmp_1, align 4
-  %tmp_7 = getelementptr inbounds i8 addrspace(1)* %tmp_6, i32 0
-  %tmp_8 = load i8 addrspace(1)* %tmp_7, align 1
-  %tmp_9 = load i8 addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds i8 addrspace(1)* %tmp_9, i32 0
-  %tmp_11 = load i8 addrspace(1)* %tmp_10, align 1
-  %tmp_12 = load i8 addrspace(1)** %tmp_3, align 4
-  %tmp_13 = getelementptr inbounds i8 addrspace(1)* %tmp_12, i32 0
-  %tmp_14 = load i8 addrspace(1)* %tmp_13, align 1
-  %tmp_15 = call zeroext i8 @_Z7mad_sathhh(i8 zeroext %tmp_8, i8 zeroext %tmp_11, i8 zeroext %tmp_14)
-  %tmp_16 = load i32* %gid, align 4
-  %tmp_17 = load i8 addrspace(1)** %tmp_4, align 4
-  %tmp_18 = getelementptr inbounds i8 addrspace(1)* %tmp_17, i32 %tmp_16
-  store i8 %tmp_15, i8 addrspace(1)* %tmp_18, align 1
+  %tmp_6 = load i32* %gid, align 4
+  %tmp_7 = load i8 addrspace(1)** %tmp_1, align 4
+  %tmp_8 = getelementptr inbounds i8 addrspace(1)* %tmp_7, i32 %tmp_6
+  %tmp_9 = load i8 addrspace(1)* %tmp_8, align 1
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load i8 addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds i8 addrspace(1)* %tmp_11, i32 %tmp_10
+  %tmp_13 = load i8 addrspace(1)* %tmp_12, align 1
+  %tmp_14 = load i32* %gid, align 4
+  %tmp_15 = load i8 addrspace(1)** %tmp_3, align 4
+  %tmp_16 = getelementptr inbounds i8 addrspace(1)* %tmp_15, i32 %tmp_14
+  %tmp_17 = load i8 addrspace(1)* %tmp_16, align 1
+  %tmp_18 = call zeroext i8 @_Z7mad_sathhh(i8 zeroext %tmp_9, i8 zeroext %tmp_13, i8 zeroext %tmp_17)
+  %tmp_19 = load i32* %gid, align 4
+  %tmp_20 = load i8 addrspace(1)** %tmp_4, align 4
+  %tmp_21 = getelementptr inbounds i8 addrspace(1)* %tmp_20, i32 %tmp_19
+  store i8 %tmp_18, i8 addrspace(1)* %tmp_21, align 1
   ret void
 }
 

@@ -11,17 +11,18 @@ define void @math_tanpi_float2(<2 x float> addrspace(1)* %src_0, <2 x float> add
   store <2 x float> addrspace(1)* %dst, <2 x float> addrspace(1)** %tmp_2, align 4
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_3, i32* %gid, align 4
-  %tmp_4 = load <2 x float> addrspace(1)** %tmp_1, align 4
-  %tmp_5 = getelementptr inbounds <2 x float> addrspace(1)* %tmp_4, i32 0
-  %tmp_6 = load <2 x float> addrspace(1)* %tmp_5, align 8
-  %tmp_7 = call i32 bitcast (i32 (...)* @tanpi to i32 (<2 x float>)*)(<2 x float> %tmp_6)
-  %tmp_8 = sitofp i32 %tmp_7 to float
-  %tmp_9 = insertelement <2 x float> undef, float %tmp_8, i32 0
-  %tmp_10 = shufflevector <2 x float> %tmp_9, <2 x float> undef, <2 x i32> zeroinitializer
-  %tmp_11 = load i32* %gid, align 4
-  %tmp_12 = load <2 x float> addrspace(1)** %tmp_2, align 4
-  %tmp_13 = getelementptr inbounds <2 x float> addrspace(1)* %tmp_12, i32 %tmp_11
-  store <2 x float> %tmp_10, <2 x float> addrspace(1)* %tmp_13, align 8
+  %tmp_4 = load i32* %gid, align 4
+  %tmp_5 = load <2 x float> addrspace(1)** %tmp_1, align 4
+  %tmp_6 = getelementptr inbounds <2 x float> addrspace(1)* %tmp_5, i32 %tmp_4
+  %tmp_7 = load <2 x float> addrspace(1)* %tmp_6, align 8
+  %tmp_8 = call i32 bitcast (i32 (...)* @tanpi to i32 (<2 x float>)*)(<2 x float> %tmp_7)
+  %tmp_9 = sitofp i32 %tmp_8 to float
+  %tmp_10 = insertelement <2 x float> undef, float %tmp_9, i32 0
+  %tmp_11 = shufflevector <2 x float> %tmp_10, <2 x float> undef, <2 x i32> zeroinitializer
+  %tmp_12 = load i32* %gid, align 4
+  %tmp_13 = load <2 x float> addrspace(1)** %tmp_2, align 4
+  %tmp_14 = getelementptr inbounds <2 x float> addrspace(1)* %tmp_13, i32 %tmp_12
+  store <2 x float> %tmp_11, <2 x float> addrspace(1)* %tmp_14, align 8
   ret void
 }
 

@@ -5,13 +5,13 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_tanh_float(float addrspace(1)* %src_0, float addrspace(1)* %dst) #0 {
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_5 = getelementptr inbounds float addrspace(1)* %src_0, i32 0
-  %tmp_6 = load float addrspace(1)* %tmp_5, align 4
-  %tmp_7 = fpext float %tmp_6 to double
-  %tmp_8 = call double @tanh(double %tmp_7) #3
-  %tmp_9 = fptrunc double %tmp_8 to float
-  %tmp_12 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_3
-  store float %tmp_9, float addrspace(1)* %tmp_12, align 4
+  %tmp_6 = getelementptr inbounds float addrspace(1)* %src_0, i32 %tmp_3
+  %tmp_7 = load float addrspace(1)* %tmp_6, align 4
+  %tmp_8 = fpext float %tmp_7 to double
+  %tmp_9 = call double @tanh(double %tmp_8) #3
+  %tmp_10 = fptrunc double %tmp_9 to float
+  %tmp_13 = getelementptr inbounds float addrspace(1)* %dst, i32 %tmp_3
+  store float %tmp_10, float addrspace(1)* %tmp_13, align 4
   ret void
 }
 

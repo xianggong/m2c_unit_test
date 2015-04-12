@@ -5,12 +5,12 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @math_rsqrt_float16(<16 x float> addrspace(1)* %src_0, <16 x float> addrspace(1)* %dst) #0 {
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_5 = getelementptr inbounds <16 x float> addrspace(1)* %src_0, i32 0
-  %tmp_6 = load <16 x float> addrspace(1)* %tmp_5, align 64
-  %tmp_7 = call <16 x float> @llvm.sqrt.v16f32(<16 x float> %tmp_6)
-  %tmp_8 = fdiv <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %tmp_7, !fpmath !2
-  %tmp_11 = getelementptr inbounds <16 x float> addrspace(1)* %dst, i32 %tmp_3
-  store <16 x float> %tmp_8, <16 x float> addrspace(1)* %tmp_11, align 64
+  %tmp_6 = getelementptr inbounds <16 x float> addrspace(1)* %src_0, i32 %tmp_3
+  %tmp_7 = load <16 x float> addrspace(1)* %tmp_6, align 64
+  %tmp_8 = call <16 x float> @llvm.sqrt.v16f32(<16 x float> %tmp_7)
+  %tmp_9 = fdiv <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %tmp_8, !fpmath !2
+  %tmp_12 = getelementptr inbounds <16 x float> addrspace(1)* %dst, i32 %tmp_3
+  store <16 x float> %tmp_9, <16 x float> addrspace(1)* %tmp_12, align 64
   ret void
 }
 

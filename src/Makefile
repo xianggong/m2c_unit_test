@@ -1,6 +1,7 @@
 all: frontend
 
 frontend:
+	-cd arithmetic_operator && make
 	-cd common && make
 	-cd integer && make
 	-cd math && make
@@ -8,6 +9,7 @@ frontend:
 	-cd workitem && make
 
 clean:
+	-cd arithmetic_operator && make clean
 	-cd common && make clean
 	-cd integer && make clean
 	-cd math && make clean

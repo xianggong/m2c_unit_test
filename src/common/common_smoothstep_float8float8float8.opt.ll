@@ -5,15 +5,15 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @common_smoothstep_float8float8float8(<8 x float> addrspace(1)* %src_0, <8 x float> addrspace(1)* %src_1, <8 x float> addrspace(1)* %src_2, <8 x float> addrspace(1)* %dst) #0 {
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_7 = getelementptr inbounds <8 x float> addrspace(1)* %src_0, i32 0
-  %tmp_8 = load <8 x float> addrspace(1)* %tmp_7, align 32
-  %tmp_10 = getelementptr inbounds <8 x float> addrspace(1)* %src_1, i32 0
-  %tmp_11 = load <8 x float> addrspace(1)* %tmp_10, align 32
-  %tmp_13 = getelementptr inbounds <8 x float> addrspace(1)* %src_2, i32 0
-  %tmp_14 = load <8 x float> addrspace(1)* %tmp_13, align 32
-  %tmp_15 = call <8 x float> @_Z10smoothstepDv8_fS_S_(<8 x float> %tmp_8, <8 x float> %tmp_11, <8 x float> %tmp_14)
-  %tmp_18 = getelementptr inbounds <8 x float> addrspace(1)* %dst, i32 %tmp_5
-  store <8 x float> %tmp_15, <8 x float> addrspace(1)* %tmp_18, align 32
+  %tmp_8 = getelementptr inbounds <8 x float> addrspace(1)* %src_0, i32 %tmp_5
+  %tmp_9 = load <8 x float> addrspace(1)* %tmp_8, align 32
+  %tmp_12 = getelementptr inbounds <8 x float> addrspace(1)* %src_1, i32 %tmp_5
+  %tmp_13 = load <8 x float> addrspace(1)* %tmp_12, align 32
+  %tmp_16 = getelementptr inbounds <8 x float> addrspace(1)* %src_2, i32 %tmp_5
+  %tmp_17 = load <8 x float> addrspace(1)* %tmp_16, align 32
+  %tmp_18 = call <8 x float> @_Z10smoothstepDv8_fS_S_(<8 x float> %tmp_9, <8 x float> %tmp_13, <8 x float> %tmp_17)
+  %tmp_21 = getelementptr inbounds <8 x float> addrspace(1)* %dst, i32 %tmp_5
+  store <8 x float> %tmp_18, <8 x float> addrspace(1)* %tmp_21, align 32
   ret void
 }
 

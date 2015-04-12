@@ -167,13 +167,13 @@ In file included from ../../inc/clc/integer/gentype.inc:10:
 _CLC_OVERLOAD _CLC_DECL __CLC_U_GENTYPE abs(__CLC_GENTYPE x);
                                         ^
 ../../inc/clc/integer/abs.inc:1:41: note: 'abs' is a builtin with type 'int (int)'
-math_native_divide_float16.cl:6:35: error: too few arguments provided to function-like macro invocation
-        dst[gid] = native_divide(src_0[0]);
-                                         ^
+math_native_divide_float16.cl:6:37: error: too few arguments provided to function-like macro invocation
+        dst[gid] = native_divide(src_0[gid]);
+                                           ^
 ../../inc/clc/math/native_divide.h:1:9: note: macro 'native_divide' defined here
 #define native_divide(x, y) ((x) / (y))
         ^
 math_native_divide_float16.cl:6:13: error: use of undeclared identifier 'native_divide'
-        dst[gid] = native_divide(src_0[0]);
+        dst[gid] = native_divide(src_0[gid]);
                    ^
 16 warnings and 2 errors generated.

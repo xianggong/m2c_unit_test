@@ -5,16 +5,16 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @integer_mad_hi_uint4uint4uint4(<4 x i32> addrspace(1)* %src_0, <4 x i32> addrspace(1)* %src_1, <4 x i32> addrspace(1)* %src_2, <4 x i32> addrspace(1)* %dst) #0 {
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_7 = getelementptr inbounds <4 x i32> addrspace(1)* %src_0, i32 0
-  %tmp_8 = load <4 x i32> addrspace(1)* %tmp_7, align 16
-  %tmp_10 = getelementptr inbounds <4 x i32> addrspace(1)* %src_1, i32 0
-  %tmp_11 = load <4 x i32> addrspace(1)* %tmp_10, align 16
-  %tmp_12 = call <4 x i32> @_Z6mul_hiDv4_jS_(<4 x i32> %tmp_8, <4 x i32> %tmp_11)
-  %tmp_14 = getelementptr inbounds <4 x i32> addrspace(1)* %src_2, i32 0
-  %tmp_15 = load <4 x i32> addrspace(1)* %tmp_14, align 16
-  %tmp_16 = add <4 x i32> %tmp_12, %tmp_15
-  %tmp_19 = getelementptr inbounds <4 x i32> addrspace(1)* %dst, i32 %tmp_5
-  store <4 x i32> %tmp_16, <4 x i32> addrspace(1)* %tmp_19, align 16
+  %tmp_8 = getelementptr inbounds <4 x i32> addrspace(1)* %src_0, i32 %tmp_5
+  %tmp_9 = load <4 x i32> addrspace(1)* %tmp_8, align 16
+  %tmp_12 = getelementptr inbounds <4 x i32> addrspace(1)* %src_1, i32 %tmp_5
+  %tmp_13 = load <4 x i32> addrspace(1)* %tmp_12, align 16
+  %tmp_14 = call <4 x i32> @_Z6mul_hiDv4_jS_(<4 x i32> %tmp_9, <4 x i32> %tmp_13)
+  %tmp_17 = getelementptr inbounds <4 x i32> addrspace(1)* %src_2, i32 %tmp_5
+  %tmp_18 = load <4 x i32> addrspace(1)* %tmp_17, align 16
+  %tmp_19 = add <4 x i32> %tmp_14, %tmp_18
+  %tmp_22 = getelementptr inbounds <4 x i32> addrspace(1)* %dst, i32 %tmp_5
+  store <4 x i32> %tmp_19, <4 x i32> addrspace(1)* %tmp_22, align 16
   ret void
 }
 

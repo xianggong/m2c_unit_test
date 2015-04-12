@@ -15,21 +15,24 @@ define void @integer_mad_hi_longlonglong(i64 addrspace(1)* %src_0, i64 addrspace
   store i64 addrspace(1)* %dst, i64 addrspace(1)** %tmp_4, align 4
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   store i32 %tmp_5, i32* %gid, align 4
-  %tmp_6 = load i64 addrspace(1)** %tmp_1, align 4
-  %tmp_7 = getelementptr inbounds i64 addrspace(1)* %tmp_6, i32 0
-  %tmp_8 = load i64 addrspace(1)* %tmp_7, align 8
-  %tmp_9 = load i64 addrspace(1)** %tmp_2, align 4
-  %tmp_10 = getelementptr inbounds i64 addrspace(1)* %tmp_9, i32 0
-  %tmp_11 = load i64 addrspace(1)* %tmp_10, align 8
-  %tmp_12 = call i64 @_Z6mul_hill(i64 %tmp_8, i64 %tmp_11)
-  %tmp_13 = load i64 addrspace(1)** %tmp_3, align 4
-  %tmp_14 = getelementptr inbounds i64 addrspace(1)* %tmp_13, i32 0
-  %tmp_15 = load i64 addrspace(1)* %tmp_14, align 8
-  %tmp_16 = add nsw i64 %tmp_12, %tmp_15
-  %tmp_17 = load i32* %gid, align 4
-  %tmp_18 = load i64 addrspace(1)** %tmp_4, align 4
-  %tmp_19 = getelementptr inbounds i64 addrspace(1)* %tmp_18, i32 %tmp_17
-  store i64 %tmp_16, i64 addrspace(1)* %tmp_19, align 8
+  %tmp_6 = load i32* %gid, align 4
+  %tmp_7 = load i64 addrspace(1)** %tmp_1, align 4
+  %tmp_8 = getelementptr inbounds i64 addrspace(1)* %tmp_7, i32 %tmp_6
+  %tmp_9 = load i64 addrspace(1)* %tmp_8, align 8
+  %tmp_10 = load i32* %gid, align 4
+  %tmp_11 = load i64 addrspace(1)** %tmp_2, align 4
+  %tmp_12 = getelementptr inbounds i64 addrspace(1)* %tmp_11, i32 %tmp_10
+  %tmp_13 = load i64 addrspace(1)* %tmp_12, align 8
+  %tmp_14 = call i64 @_Z6mul_hill(i64 %tmp_9, i64 %tmp_13)
+  %tmp_15 = load i32* %gid, align 4
+  %tmp_16 = load i64 addrspace(1)** %tmp_3, align 4
+  %tmp_17 = getelementptr inbounds i64 addrspace(1)* %tmp_16, i32 %tmp_15
+  %tmp_18 = load i64 addrspace(1)* %tmp_17, align 8
+  %tmp_19 = add nsw i64 %tmp_14, %tmp_18
+  %tmp_20 = load i32* %gid, align 4
+  %tmp_21 = load i64 addrspace(1)** %tmp_4, align 4
+  %tmp_22 = getelementptr inbounds i64 addrspace(1)* %tmp_21, i32 %tmp_20
+  store i64 %tmp_19, i64 addrspace(1)* %tmp_22, align 8
   ret void
 }
 

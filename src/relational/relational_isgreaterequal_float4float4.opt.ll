@@ -5,13 +5,13 @@ target triple = "r600--"
 ; Function Attrs: nounwind
 define void @relational_isgreaterequal_float4float4(<4 x float> addrspace(1)* %src_0, <4 x float> addrspace(1)* %src_1, <4 x i32> addrspace(1)* %dst) #0 {
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
-  %tmp_6 = getelementptr inbounds <4 x float> addrspace(1)* %src_0, i32 0
-  %tmp_7 = load <4 x float> addrspace(1)* %tmp_6, align 16
-  %tmp_9 = getelementptr inbounds <4 x float> addrspace(1)* %src_1, i32 0
-  %tmp_10 = load <4 x float> addrspace(1)* %tmp_9, align 16
-  %tmp_11 = call <4 x i32> @_Z14isgreaterequalDv4_fS_(<4 x float> %tmp_7, <4 x float> %tmp_10)
-  %tmp_14 = getelementptr inbounds <4 x i32> addrspace(1)* %dst, i32 %tmp_4
-  store <4 x i32> %tmp_11, <4 x i32> addrspace(1)* %tmp_14, align 16
+  %tmp_7 = getelementptr inbounds <4 x float> addrspace(1)* %src_0, i32 %tmp_4
+  %tmp_8 = load <4 x float> addrspace(1)* %tmp_7, align 16
+  %tmp_11 = getelementptr inbounds <4 x float> addrspace(1)* %src_1, i32 %tmp_4
+  %tmp_12 = load <4 x float> addrspace(1)* %tmp_11, align 16
+  %tmp_13 = call <4 x i32> @_Z14isgreaterequalDv4_fS_(<4 x float> %tmp_8, <4 x float> %tmp_12)
+  %tmp_16 = getelementptr inbounds <4 x i32> addrspace(1)* %dst, i32 %tmp_4
+  store <4 x i32> %tmp_13, <4 x i32> addrspace(1)* %tmp_16, align 16
   ret void
 }
 
