@@ -1,0 +1,10 @@
+m2c --llvm2si math_hypot_floatfloat.opt.bc
+Function math_hypot_floatfloat
+Num of basic block = 1
+BasicBlock name
+var_name = tmp_4
+var_name = tmp_13
+[31m
+[Southern Islands back-end] Error: Argument should be an integer constant
+
+[m

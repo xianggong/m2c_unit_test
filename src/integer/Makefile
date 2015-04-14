@@ -7,4 +7,4 @@ frontend:
 	rm test.py
 
 clean:
-	rm -rf *.cl *.s *.ll *.bc *.stdout *.bin *m2s_files
+	rm -rf *.cl *.s *.ll *.bc *.stdout *.m2cOut *.bin *m2s_files

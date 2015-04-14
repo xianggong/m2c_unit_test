@@ -1,0 +1,10 @@
+m2c --llvm2si integer_rotate_uintuint.opt.bc
+Function integer_rotate_uintuint
+Num of basic block = 1
+BasicBlock name
+var_name = tmp_4
+var_name = tmp_13
+[31m
+[Southern Islands back-end] Error: Argument should be an integer constant
+
+[m

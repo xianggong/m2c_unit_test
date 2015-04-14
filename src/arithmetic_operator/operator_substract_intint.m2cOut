@@ -1,0 +1,5 @@
+m2c --llvm2si operator_substract_intint.opt.bc
+Function operator_substract_intint
+Num of basic block = 1
+BasicBlock name
+var_name = tmp_4

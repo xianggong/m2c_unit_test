@@ -1,0 +1,5 @@
+m2c --llvm2si operator_muliply_uintuint.opt.bc
+Function operator_muliply_uintuint
+Num of basic block = 1
+BasicBlock name
+var_name = tmp_4

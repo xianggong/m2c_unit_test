@@ -97,6 +97,17 @@ def amd_cpl(file_name):
         runCommand(cmd_amd_cpl_cleanup.split())
 
 
+def m2c_gen(file_name):
+    if os.path.isfile(file_name + ".opt.bc"):
+        # Command to disassemble bitcode
+        m2c_gen = "m2c --llvm2si "
+        m2c_gen_src = file_name + ".opt.bc"
+        # dis_ir_dst = file_name + ".opt.ll"
+        cmd_m2c_gen = m2c_gen + m2c_gen_src
+        # runCommand(cmd_m2c_gen.split())
+        dumpRunCommand(cmd_m2c_gen, file_name, ".m2cOut")
+
+
 def main():
 
         # Commands
@@ -112,6 +123,7 @@ def main():
                         asm_ir(file_name)
                         opt_bc(file_name)
                         dis_bc(file_name)
+                        m2c_gen(file_name)
 
 if __name__ == "__main__":
         main()

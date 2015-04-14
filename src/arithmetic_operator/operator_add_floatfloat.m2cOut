@@ -1,0 +1,5 @@
+m2c --llvm2si operator_add_floatfloat.opt.bc
+Function operator_add_floatfloat
+Num of basic block = 1
+BasicBlock name
+var_name = tmp_4

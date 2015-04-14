@@ -1,0 +1,5 @@
+m2c --llvm2si operator_pre_increment_int.opt.bc
+Function operator_pre_increment_int
+Num of basic block = 1
+BasicBlock name
+var_name = tmp_3
