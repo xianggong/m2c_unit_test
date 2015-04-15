@@ -1,7 +1,7 @@
 m2c --llvm2si integer_rotate_intint.opt.bc
 Function integer_rotate_intint
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_4
 var_name = tmp_13
 [31m

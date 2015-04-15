@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @operator_post_decrement_ulong8(<8 x i64> addrspace(1)* %src_0, <8 x i64> addrspace(1)* %dst) #0 {
+entry:
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   %tmp_6 = getelementptr inbounds <8 x i64> addrspace(1)* %src_0, i32 %tmp_3
   %tmp_7 = load <8 x i64> addrspace(1)* %tmp_6, align 64

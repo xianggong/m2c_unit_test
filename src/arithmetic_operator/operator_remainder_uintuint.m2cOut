@@ -1,7 +1,7 @@
 m2c --llvm2si operator_remainder_uintuint.opt.bc
 Function operator_remainder_uintuint
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_4
 [31m
 Panic: LLVM opcode not supported (17 urem)
@@ -12,7 +12,7 @@ Call stack:
 [3] m2c() [0x43aa96]
 [4] m2c() [0x420b71]
 [5] m2c() [0x420f89]
-[6] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b7901cb7ec5]
+[6] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2af53f19cec5]
 [7] m2c() [0x420572]
 
 

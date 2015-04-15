@@ -23,9 +23,11 @@ def main():
                         func_name = "workitem_" + func + "_" + param
                         func_file = open(func_name + ".cl", "w+")
                         line = "// Auto gen by workitem_func_gen.py\n\n"
-                        line += "__kernel void " + func_name + "()\n"
+                        line += "__kernel void " + func_name
+                        line += "(__global int *dst)\n"
                         line += "{\n"
-                        line += "\tsize_t val = " + func + "(" + param + ");\n"
+                        line += "\tint val = " + func + "(" + param + ");\n"
+                        line += "\tdst[val] = val;\n"
                         line += "}\n\n"
 
                         func_file.write(line)

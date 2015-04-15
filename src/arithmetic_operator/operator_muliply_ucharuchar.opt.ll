@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @operator_muliply_ucharuchar(i8 addrspace(1)* %src_0, i8 addrspace(1)* %src_1, i8 addrspace(1)* %dst) #0 {
+entry:
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   %tmp_7 = getelementptr inbounds i8 addrspace(1)* %src_0, i32 %tmp_4
   %tmp_8 = load i8 addrspace(1)* %tmp_7, align 1

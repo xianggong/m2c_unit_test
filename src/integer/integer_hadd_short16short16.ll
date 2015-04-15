@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @integer_hadd_short16short16(<16 x i16> addrspace(1)* %src_0, <16 x i16> addrspace(1)* %src_1, <16 x i16> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <16 x i16> addrspace(1)*, align 4
   %tmp_2 = alloca <16 x i16> addrspace(1)*, align 4
   %tmp_3 = alloca <16 x i16> addrspace(1)*, align 4

@@ -20,6 +20,11 @@ def dumpRunCommand(command, dump_file_name, postfix):
                 dumpFile.write(line)
 
 
+def rmFile(file_name):
+        cmd = "rm -rf " + file_name
+        runCommand(cmd.split())
+
+
 def rnm_ir(file_name):
         # Append all unnamed variable with prefix 'tmp_'
         ir_file_name = file_name + ".ll"
@@ -29,6 +34,9 @@ def rnm_ir(file_name):
                 fo.seek(0)
                 fo.truncate()
                 for line in lines:
+                        # Add entry block identifier
+                        if "define" in line:
+                            line += "entry:\n"
                         # Rename all unnamed variables
                         line = re.sub('\%([0-9]+)',
                                       r'%tmp_\1',
@@ -102,10 +110,22 @@ def m2c_gen(file_name):
         # Command to disassemble bitcode
         m2c_gen = "m2c --llvm2si "
         m2c_gen_src = file_name + ".opt.bc"
-        # dis_ir_dst = file_name + ".opt.ll"
         cmd_m2c_gen = m2c_gen + m2c_gen_src
-        # runCommand(cmd_m2c_gen.split())
         dumpRunCommand(cmd_m2c_gen, file_name, ".m2cOut")
+
+    # Remove file if size is 0
+    if os.path.isfile(file_name + ".opt.s"):
+        if os.path.getsize(file_name + ".opt.s") == 0:
+            rmFile(file_name + ".opt.s")
+
+
+def m2c_bin(file_name):
+    if os.path.isfile(file_name + ".opt.s"):
+        # Command to disassemble bitcode
+        m2c_bin = "m2c --si2bin "
+        m2c_bin_src = file_name + ".opt.s"
+        cmd_m2c_bin = m2c_bin + m2c_bin_src
+        dumpRunCommand(cmd_m2c_bin, file_name, ".m2cBinOut")
 
 
 def main():
@@ -124,6 +144,7 @@ def main():
                         opt_bc(file_name)
                         dis_bc(file_name)
                         m2c_gen(file_name)
+                        m2c_bin(file_name)
 
 if __name__ == "__main__":
         main()

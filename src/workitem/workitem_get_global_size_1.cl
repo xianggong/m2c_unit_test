@@ -1,7 +1,8 @@
 // Auto gen by workitem_func_gen.py
 
-__kernel void workitem_get_global_size_1()
+__kernel void workitem_get_global_size_1(__global int *dst)
 {
-	size_t val = get_global_size(1);
+	int val = get_global_size(1);
+	dst[val] = val;
 }
 

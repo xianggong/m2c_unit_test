@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @integer_mad_sat_uchar4uchar4uchar4(<4 x i8> addrspace(1)* %src_0, <4 x i8> addrspace(1)* %src_1, <4 x i8> addrspace(1)* %src_2, <4 x i8> addrspace(1)* %dst) #0 {
+entry:
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   %tmp_8 = getelementptr inbounds <4 x i8> addrspace(1)* %src_0, i32 %tmp_5
   %tmp_9 = load <4 x i8> addrspace(1)* %tmp_8, align 4

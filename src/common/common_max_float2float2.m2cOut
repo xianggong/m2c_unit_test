@@ -1,7 +1,7 @@
 m2c --llvm2si common_max_float2float2.opt.bc
 Function common_max_float2float2
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_4
 [31m
 Panic: Only 4-byte int/float types supported
@@ -13,7 +13,7 @@ Call stack:
 [4] m2c() [0x43aa96]
 [5] m2c() [0x420b71]
 [6] m2c() [0x420f89]
-[7] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b5a74342ec5]
+[7] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2abe8d1faec5]
 [8] m2c() [0x420572]
 
 

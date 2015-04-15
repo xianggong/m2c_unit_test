@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @math_log1p_float16(<16 x float> addrspace(1)* %src_0, <16 x float> addrspace(1)* %dst) #0 {
+entry:
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   %tmp_6 = getelementptr inbounds <16 x float> addrspace(1)* %src_0, i32 %tmp_3
   %tmp_7 = load <16 x float> addrspace(1)* %tmp_6, align 64

@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @math_half_exp_float4(<4 x float> addrspace(1)* %src_0, <4 x float> addrspace(1)* %dst) #0 {
+entry:
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   %tmp_6 = getelementptr inbounds <4 x float> addrspace(1)* %src_0, i32 %tmp_3
   %tmp_7 = load <4 x float> addrspace(1)* %tmp_6, align 16

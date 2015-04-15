@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @common_step_floatfloat(float addrspace(1)* %src_0, float addrspace(1)* %src_1, float addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca float addrspace(1)*, align 4
   %tmp_2 = alloca float addrspace(1)*, align 4
   %tmp_3 = alloca float addrspace(1)*, align 4

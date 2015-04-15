@@ -1,5 +1,5 @@
 m2c --llvm2si operator_muliply_intint.opt.bc
 Function operator_muliply_intint
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_4

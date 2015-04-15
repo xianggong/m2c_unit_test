@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @math_cos_float16(<16 x float> addrspace(1)* %src_0, <16 x float> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <16 x float> addrspace(1)*, align 4
   %tmp_2 = alloca <16 x float> addrspace(1)*, align 4
   %gid = alloca i32, align 4

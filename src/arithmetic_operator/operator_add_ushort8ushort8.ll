@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @operator_add_ushort8ushort8(<8 x i16> addrspace(1)* %src_0, <8 x i16> addrspace(1)* %src_1, <8 x i16> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <8 x i16> addrspace(1)*, align 4
   %tmp_2 = alloca <8 x i16> addrspace(1)*, align 4
   %tmp_3 = alloca <8 x i16> addrspace(1)*, align 4

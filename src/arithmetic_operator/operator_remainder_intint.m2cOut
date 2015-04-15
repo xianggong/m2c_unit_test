@@ -1,7 +1,7 @@
 m2c --llvm2si operator_remainder_intint.opt.bc
 Function operator_remainder_intint
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_4
 [31m
 Panic: LLVM opcode not supported (18 srem)
@@ -12,7 +12,7 @@ Call stack:
 [3] m2c() [0x43aa96]
 [4] m2c() [0x420b71]
 [5] m2c() [0x420f89]
-[6] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b5c338c3ec5]
+[6] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b659eb2cec5]
 [7] m2c() [0x420572]
 
 

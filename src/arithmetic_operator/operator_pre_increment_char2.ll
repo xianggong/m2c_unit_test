@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @operator_pre_increment_char2(<2 x i8> addrspace(1)* %src_0, <2 x i8> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <2 x i8> addrspace(1)*, align 4
   %tmp_2 = alloca <2 x i8> addrspace(1)*, align 4
   %gid = alloca i32, align 4

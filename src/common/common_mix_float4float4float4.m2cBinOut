@@ -1,0 +1,2 @@
+m2c --si2bin common_mix_float4float4float4.opt.s
+INPUT_FILE:1: error: syntax error, unexpected $end, expecting TOK_NEW_LINE or TOK_GLOBAL

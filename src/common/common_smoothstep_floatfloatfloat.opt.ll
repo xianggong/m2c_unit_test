@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @common_smoothstep_floatfloatfloat(float addrspace(1)* %src_0, float addrspace(1)* %src_1, float addrspace(1)* %src_2, float addrspace(1)* %dst) #0 {
+entry:
   %tmp_5 = call i32 @__get_global_id_u32(i32 0)
   %tmp_8 = getelementptr inbounds float addrspace(1)* %src_0, i32 %tmp_5
   %tmp_9 = load float addrspace(1)* %tmp_8, align 4

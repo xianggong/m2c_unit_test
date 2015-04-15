@@ -1,7 +1,7 @@
 m2c --llvm2si integer_mad_sat_long2long2long2.opt.bc
 Function integer_mad_sat_long2long2long2
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_5
 [31m
 Panic: Only 4-byte int/float types supported
@@ -13,7 +13,7 @@ Call stack:
 [4] m2c() [0x43aa96]
 [5] m2c() [0x420b71]
 [6] m2c() [0x420f89]
-[7] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2ba893049ec5]
+[7] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b9f28b84ec5]
 [8] m2c() [0x420572]
 
 

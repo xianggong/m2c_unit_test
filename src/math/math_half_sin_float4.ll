@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @math_half_sin_float4(<4 x float> addrspace(1)* %src_0, <4 x float> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <4 x float> addrspace(1)*, align 4
   %tmp_2 = alloca <4 x float> addrspace(1)*, align 4
   %gid = alloca i32, align 4

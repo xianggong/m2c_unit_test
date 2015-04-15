@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @operator_post_decrement_int(i32 addrspace(1)* %src_0, i32 addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca i32 addrspace(1)*, align 4
   %tmp_2 = alloca i32 addrspace(1)*, align 4
   %gid = alloca i32, align 4

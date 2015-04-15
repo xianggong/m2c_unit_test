@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @integer_clz_int4(<4 x i32> addrspace(1)* %src_0, <4 x i32> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <4 x i32> addrspace(1)*, align 4
   %tmp_2 = alloca <4 x i32> addrspace(1)*, align 4
   %gid = alloca i32, align 4

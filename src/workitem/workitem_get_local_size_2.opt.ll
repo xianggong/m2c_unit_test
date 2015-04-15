@@ -3,8 +3,11 @@ target datalayout = "e-p:64:64:64-p3:32:32:32-i1:8:8-i8:8:8-i16:16:16-i32:32:32-
 target triple = "r600--"
 
 ; Function Attrs: nounwind
-define void @workitem_get_local_size_2() #0 {
-  %tmp_1 = call i32 @__get_local_size_u32(i32 2)
+define void @workitem_get_local_size_2(i32 addrspace(1)* %dst) #0 {
+entry:
+  %tmp_2 = call i32 @__get_local_size_u32(i32 2)
+  %tmp_6 = getelementptr inbounds i32 addrspace(1)* %dst, i32 %tmp_2
+  store i32 %tmp_2, i32 addrspace(1)* %tmp_6, align 4
   ret void
 }
 
@@ -16,5 +19,5 @@ attributes #1 = { "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "n
 !opencl.kernels = !{!0}
 !llvm.ident = !{!1}
 
-!0 = metadata !{void ()* @workitem_get_local_size_2}
+!0 = metadata !{void (i32 addrspace(1)*)* @workitem_get_local_size_2}
 !1 = metadata !{metadata !"Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)"}

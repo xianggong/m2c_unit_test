@@ -1,6 +1,5 @@
 m2c --llvm2si workitem_get_global_id_2.opt.bc
 Function workitem_get_global_id_2
 Num of basic block = 1
-BasicBlock name
-var_name = tmp_1
-m2c: ../../src/lib/cpp/Misc.h:213: X misc::cast(const Y&) [with X = llvm2si::BasicBlock*; Y = comm::BasicBlock*]: Assertion `result && "cast<Ty>() argument of incompatible type"' failed.
+BasicBlock nameentry
+var_name = tmp_2

@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @relational_bitselect_uchar4uchar4uchar4(<4 x i8> addrspace(1)* %src_0, <4 x i8> addrspace(1)* %src_1, <4 x i8> addrspace(1)* %src_2, <4 x i8> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <4 x i8> addrspace(1)*, align 4
   %tmp_2 = alloca <4 x i8> addrspace(1)*, align 4
   %tmp_3 = alloca <4 x i8> addrspace(1)*, align 4

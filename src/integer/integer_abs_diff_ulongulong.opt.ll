@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @integer_abs_diff_ulongulong(i64 addrspace(1)* %src_0, i64 addrspace(1)* %src_1, i64 addrspace(1)* %dst) #0 {
+entry:
   %tmp_4 = call i32 @__get_global_id_u32(i32 0)
   %tmp_7 = getelementptr inbounds i64 addrspace(1)* %src_0, i32 %tmp_4
   %tmp_8 = load i64 addrspace(1)* %tmp_7, align 8

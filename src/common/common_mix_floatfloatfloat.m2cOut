@@ -1,7 +1,7 @@
 m2c --llvm2si common_mix_floatfloatfloat.opt.bc
 Function common_mix_floatfloatfloat
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_5
 var_name = tmp_18
 [31m

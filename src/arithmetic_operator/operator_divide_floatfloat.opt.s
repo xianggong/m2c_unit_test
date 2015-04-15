@@ -43,7 +43,7 @@ args:
 	s_buffer_load_dword s36, s[6:9], 0x8
 	s_waitcnt lgkmcnt(0)
 
-:
+entry:
 	v_mov_b32 v9, s22
 	v_mul_i32_i24 v11, 0x4, v3
 	v_add_i32 v10, vcc, v11, v9

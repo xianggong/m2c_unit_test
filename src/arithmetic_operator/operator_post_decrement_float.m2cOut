@@ -1,7 +1,7 @@
 m2c --llvm2si operator_post_decrement_float.opt.bc
 Function operator_post_decrement_float
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_3
 [31m
 Panic: Constant type not supported (2)
@@ -16,7 +16,7 @@ Call stack:
 [7] m2c() [0x43aa96]
 [8] m2c() [0x420b71]
 [9] m2c() [0x420f89]
-[10] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b0d03b18ec5]
+[10] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b4f4bb93ec5]
 [11] m2c() [0x420572]
 
 

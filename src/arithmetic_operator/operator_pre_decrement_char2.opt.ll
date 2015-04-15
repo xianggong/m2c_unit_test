@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @operator_pre_decrement_char2(<2 x i8> addrspace(1)* %src_0, <2 x i8> addrspace(1)* %dst) #0 {
+entry:
   %tmp_3 = call i32 @__get_global_id_u32(i32 0)
   %tmp_6 = getelementptr inbounds <2 x i8> addrspace(1)* %src_0, i32 %tmp_3
   %tmp_7 = load <2 x i8> addrspace(1)* %tmp_6, align 2

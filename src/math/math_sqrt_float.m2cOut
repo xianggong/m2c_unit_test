@@ -1,7 +1,7 @@
 m2c --llvm2si math_sqrt_float.opt.bc
 Function math_sqrt_float
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_3
 var_name = tmp_8
 [31m

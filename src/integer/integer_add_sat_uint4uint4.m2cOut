@@ -1,7 +1,7 @@
 m2c --llvm2si integer_add_sat_uint4uint4.opt.bc
 Function integer_add_sat_uint4uint4
 Num of basic block = 1
-BasicBlock name
+BasicBlock nameentry
 var_name = tmp_4
 [31m
 Panic: Only 4-byte int/float types supported
@@ -13,7 +13,7 @@ Call stack:
 [4] m2c() [0x43aa96]
 [5] m2c() [0x420b71]
 [6] m2c() [0x420f89]
-[7] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b24d0b7aec5]
+[7] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x2b983012bec5]
 [8] m2c() [0x420572]
 
 

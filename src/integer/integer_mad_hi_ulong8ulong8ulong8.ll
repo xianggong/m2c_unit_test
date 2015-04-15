@@ -4,6 +4,7 @@ target triple = "r600--"
 
 ; Function Attrs: nounwind
 define void @integer_mad_hi_ulong8ulong8ulong8(<8 x i64> addrspace(1)* %src_0, <8 x i64> addrspace(1)* %src_1, <8 x i64> addrspace(1)* %src_2, <8 x i64> addrspace(1)* %dst) #0 {
+entry:
   %tmp_1 = alloca <8 x i64> addrspace(1)*, align 4
   %tmp_2 = alloca <8 x i64> addrspace(1)*, align 4
   %tmp_3 = alloca <8 x i64> addrspace(1)*, align 4
