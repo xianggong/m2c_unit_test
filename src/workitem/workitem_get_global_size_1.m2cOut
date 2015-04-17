@@ -1,5 +1,0 @@
-m2c --llvm2si workitem_get_global_size_1.opt.bc
-Function workitem_get_global_size_1
-Num of basic block = 1
-BasicBlock nameentry
-var_name = tmp_2

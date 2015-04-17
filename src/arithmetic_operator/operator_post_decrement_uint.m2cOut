@@ -1,5 +1,0 @@
-m2c --llvm2si operator_post_decrement_uint.opt.bc
-Function operator_post_decrement_uint
-Num of basic block = 1
-BasicBlock nameentry
-var_name = tmp_3
