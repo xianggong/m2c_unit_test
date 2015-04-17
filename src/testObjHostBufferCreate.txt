@@ -2,8 +2,7 @@
         /* Create and init host side src buffer SRC_IDX */
         HOST_DATA_TYPE *src_SRC_IDX_host_buffer;
         src_SRC_IDX_host_buffer = malloc(num_elem * sizeof(HOST_DATA_TYPE));
-        int i;
-        for (i = 0; i < num_elem; i++)
+        for (int i = 0; i < num_elem; i++)
                 src_SRC_IDX_host_buffer[i] = (HOST_DATA_TYPE)HOST_INIT_VALUE;
         
         /* Create and init device side src buffer SRC_IDX */

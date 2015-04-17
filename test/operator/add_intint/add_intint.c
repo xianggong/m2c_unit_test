@@ -62,7 +62,7 @@ int main(int argc, char const *argv[])
         /* Get device */
         cl_device_id device;
         cl_uint num_devices;
-        ret = clGetDeviceIDs(platform, CL_DEVICE_TYPE_CPU, 1, &device, &num_devices);
+        ret = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, &num_devices);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clGetDeviceIDs' failed\n");
@@ -114,7 +114,7 @@ int main(int argc, char const *argv[])
         cl_int bin_ret;
         
         /* Read program binary */
-        bin = read_buffer("add_intint.opt.bin", &bin_len);
+        bin = read_buffer("add_intint.bin", &bin_len);
         
         /* Create a program */
         cl_program program;
@@ -152,8 +152,7 @@ int main(int argc, char const *argv[])
         /* Create and init host side src buffer 0 */
         cl_int *src_0_host_buffer;
         src_0_host_buffer = malloc(num_elem * sizeof(cl_int));
-        int i;
-        for (i = 0; i < num_elem; i++)
+        for (int i = 0; i < num_elem; i++)
                 src_0_host_buffer[i] = (cl_int)(2);
         
         /* Create and init device side src buffer 0 */
@@ -168,8 +167,7 @@ int main(int argc, char const *argv[])
         /* Create and init host side src buffer 1 */
         cl_int *src_1_host_buffer;
         src_1_host_buffer = malloc(num_elem * sizeof(cl_int));
-        int i;
-        for (i = 0; i < num_elem; i++)
+        for (int i = 0; i < num_elem; i++)
                 src_1_host_buffer[i] = (cl_int)(2);
         
         /* Create and init device side src buffer 1 */

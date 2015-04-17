@@ -62,7 +62,7 @@ int main(int argc, char const *argv[])
         /* Get device */
         cl_device_id device;
         cl_uint num_devices;
-        ret = clGetDeviceIDs(platform, CL_DEVICE_TYPE_CPU, 1, &device, &num_devices);
+        ret = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, &num_devices);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clGetDeviceIDs' failed\n");
@@ -152,8 +152,7 @@ int main(int argc, char const *argv[])
         /* Create and init host side src buffer 0 */
         cl_long *src_0_host_buffer;
         src_0_host_buffer = malloc(num_elem * sizeof(cl_long));
-        int i;
-        for (i = 0; i < num_elem; i++)
+        for (int i = 0; i < num_elem; i++)
                 src_0_host_buffer[i] = (cl_long)(2);
         
         /* Create and init device side src buffer 0 */
@@ -168,8 +167,7 @@ int main(int argc, char const *argv[])
         /* Create and init host side src buffer 1 */
         cl_long *src_1_host_buffer;
         src_1_host_buffer = malloc(num_elem * sizeof(cl_long));
-        int i;
-        for (i = 0; i < num_elem; i++)
+        for (int i = 0; i < num_elem; i++)
                 src_1_host_buffer[i] = (cl_long)(2);
         
         /* Create and init device side src buffer 1 */
