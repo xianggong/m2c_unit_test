@@ -9,7 +9,7 @@
         
         /* Create a program */
         cl_program program;
-        program = clCreateProgramWithBinary(context, 1, device, &bin_len, (unsigned char **)&bin, &bin_ret, &ret);
+        program = clCreateProgramWithBinary(context, 1, &device, &bin_len, (const unsigned char **)&bin, &bin_ret, &ret);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clCreateProgramWithBinary' failed\n");

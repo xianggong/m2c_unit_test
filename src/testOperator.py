@@ -83,6 +83,7 @@ class testOperator(testObj):
                                                                  srcInitValue)
                 hostDstType = self.getHostDataType(str(self.dstType[0]))
                 buffer = buffer.replace("HOST_DST_DATA_TYPE", hostDstType)
+                buffer = buffer.replace("NUM_ELEM", str(10))
                 return buffer.replace("SRC_BUFFER_INIT", bufferCreate)
 
         def getHostSetKernelArg(self, srcIdx):

@@ -57,8 +57,7 @@ int main(int argc, char const *argv[])
                 exit(1);
         }
         
-        printf("platform.name='%s'\n", platform_name);
-        printf("\n");
+        printf("platform.name='%s'\n\n", platform_name);
         
         /* Get device */
         cl_device_id device;
@@ -84,7 +83,7 @@ int main(int argc, char const *argv[])
         }
         
         printf("device.name='%s'\n", device_name);
-        printf("\n")
+        printf("\n");
         
         /* Create a Context Object */
         cl_context context;
@@ -95,7 +94,7 @@ int main(int argc, char const *argv[])
                 exit(1);
         }
         
-        printf("context=%p\n", context)
+        printf("context=%p\n", context);
         
         /* Create a Command Queue Object*/
         cl_command_queue command_queue;
@@ -119,7 +118,7 @@ int main(int argc, char const *argv[])
         
         /* Create a program */
         cl_program program;
-        program = clCreateProgramWithBinary(context, 1, device, &bin_len, (unsigned char **)&bin, &bin_ret, &ret);
+        program = clCreateProgramWithBinary(context, 1, &device, &bin_len, (const unsigned char **)&bin, &bin_ret, &ret);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clCreateProgramWithBinary' failed\n");
@@ -148,7 +147,7 @@ int main(int argc, char const *argv[])
         }
         
         /* Create and allocate host buffers */
-        size_t num_elem = NUM_ELEM;
+        size_t num_elem = 10;
         
         /* Create and init host side src buffer 0 */
         cl_long16 *src_0_host_buffer;

@@ -57,8 +57,7 @@ int main(int argc, char const *argv[])
                 exit(1);
         }
         
-        printf("platform.name='%s'\n", platform_name);
-        printf("\n");
+        printf("platform.name='%s'\n\n", platform_name);
         
         /* Get device */
         cl_device_id device;
@@ -84,7 +83,7 @@ int main(int argc, char const *argv[])
         }
         
         printf("device.name='%s'\n", device_name);
-        printf("\n")
+        printf("\n");
         
         /* Create a Context Object */
         cl_context context;
@@ -95,7 +94,7 @@ int main(int argc, char const *argv[])
                 exit(1);
         }
         
-        printf("context=%p\n", context)
+        printf("context=%p\n", context);
         
         /* Create a Command Queue Object*/
         cl_command_queue command_queue;
