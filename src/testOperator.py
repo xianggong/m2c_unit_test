@@ -72,8 +72,8 @@ class testOperator(testObj):
 
         def getHostBufferInit(self):
                 buffer = ""
-                with open("testObjHostBufferInit.txt") as hostBuffer:
-                        buffer = hostBuffer.read()
+                with open("testObjHostBufferInit.txt") as file:
+                        buffer = file.read()
                 bufferCreate = ""
                 for srcIdx in range(self.getNumSrc()):
                         srcType = self.srcTypes[srcIdx]
@@ -81,7 +81,29 @@ class testOperator(testObj):
                         bufferCreate += self.getHostBufferCreate(srcType,
                                                                  srcIdx,
                                                                  srcInitValue)
+                hostDstType = self.getHostDataType(str(self.dstType[0]))
+                buffer = buffer.replace("HOST_DST_DATA_TYPE", hostDstType)
                 return buffer.replace("SRC_BUFFER_INIT", bufferCreate)
+
+        def getHostSetKernelArg(self, srcIdx):
+                bufferSrc = ""
+                with open("testObjHostSetKernelArg.txt") as hostSrc:
+                        bufferSrc = hostSrc.read()
+                bufferSrc = bufferSrc.replace("SRC_IDX", str(srcIdx))
+                return bufferSrc + "\n"
+
+        def getHostLaunchKernel(self):
+                buffer = ""
+                with open("testObjHostLaunchKernel.txt") as file:
+                        buffer = file.read()
+                bufferSetArgs = ""
+                for srcIdx in range(self.getNumSrc()):
+                        bufferSetArgs += self.getHostSetKernelArg(srcIdx)
+                buffer = buffer.replace("SET_KERNEL_ARGS", bufferSetArgs)
+                buffer = buffer.replace("DST_IDX", str(self.getNumSrc()))
+                hostDstType = self.getHostDataType(str(self.dstType[0]))
+                buffer = buffer.replace("HOST_DST_DATA_TYPE", hostDstType)
+                return buffer
 
         def getHostBufferFree(self, srcIdx):
                 bufferSrc = ""
@@ -92,8 +114,8 @@ class testOperator(testObj):
 
         def getHostBufferDestroy(self):
                 buffer = ""
-                with open("testObjHostBufferDestroy.txt") as hostBuffer:
-                        buffer = hostBuffer.read()
+                with open("testObjHostBufferDestroy.txt") as file:
+                        buffer = file.read()
                 bufferDestroy = ""
                 for srcIdx in range(self.getNumSrc()):
                         bufferDestroy += self.getHostBufferFree(srcIdx)
@@ -103,6 +125,7 @@ class testOperator(testObj):
                 main = ""
                 main += self.getHostProgramKernelCreate()
                 main += self.getHostBufferInit()
+                main += self.getHostLaunchKernel()
                 main += self.getHostBufferDestroy()
                 return main
 

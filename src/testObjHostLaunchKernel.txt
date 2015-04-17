@@ -1,5 +1,13 @@
+        
         /* Set kernel arguments */
-        SET_KERNEL_ARGS
+        ret = CL_SUCCESS;
+SET_KERNEL_ARGS        ret |= clSetKernelArg(kernel, DST_IDX, sizeof(cl_mem), &dst_device_buffer);
+        if (ret != CL_SUCCESS)
+        {
+                printf("error: call to 'clSetKernelArg' failed\n");
+                exit(1);
+        }
+
         /* Launch the kernel */
         size_t global_work_size = num_elem;
         size_t local_work_size = num_elem;
@@ -13,9 +21,8 @@
         /* Wait for it to finish */
         clFinish(command_queue);
 
-
         /* Read results from GPU */
-        ret = clEnqueueReadBuffer(command_queue, dst_device_buffer, CL_TRUE,0, num_elem * sizeof(HOST_DATA_TYPE), dst_host_buffer, 0, NULL, NULL);
+        ret = clEnqueueReadBuffer(command_queue, dst_device_buffer, CL_TRUE,0, num_elem * sizeof(HOST_DST_DATA_TYPE), dst_host_buffer, 0, NULL, NULL);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clEnqueueReadBuffer' failed\n");
