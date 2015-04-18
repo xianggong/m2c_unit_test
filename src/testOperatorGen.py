@@ -101,8 +101,8 @@ def main():
                                 src.append(srcTypes[dataTypeIdx])
                         obj = testOperator(src, dst, operatorLiteral,
                                            operatorName, operatorUsage)
-                        obj.dumpKernel("../test/operator/")
-                        obj.dumpHost("../test/operator/")
+                        obj.dumpKernelProgram("../test/operator/")
+                        obj.dumpHostProgram("../test/operator/")
 
 if __name__ == "__main__":
         main()
