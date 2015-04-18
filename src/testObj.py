@@ -25,7 +25,7 @@ class testObj(object):
         def getNumDst(self):
                 return len(self.dstType)
 
-        """ Functions for kernel program """
+        """ Functions for generating kernel program """
 
         def getStringParamSrc(self):
                 srcParam = ""
@@ -70,7 +70,7 @@ class testObj(object):
                 kernelFile.write(self.getKernelSrc())
                 kernelFile.close()
 
-        """ Functions for host program """
+        """ Functions for generating host program """
 
         def getHostSrcPrefix(self):
                 with open("clPrefix.txt") as hostSrcPrefix:
@@ -213,3 +213,7 @@ class testObj(object):
         def dumpHostProgram(self, path):
                 self.dumpHostProgramReadSrc(path)
                 self.dumpHostProgramReadBin(path)
+
+        def dumpAll(self, path):
+                self.dumpKernelProgram(path)
+                self.dumpHostProgram(path)
