@@ -1,17 +1,19 @@
-all: frontend
+all: genUnitTestCommonFunc genUnitTestIntegerFunc genUnitTestMathFunc genUnitTestRelationalFunc genUnitTestOperator
 
-frontend:
-	-cd arithmetic_operator && make
-	-cd common && make
-	-cd integer && make
-	-cd math && make
-	-cd relational && make
-	-cd workitem && make
+genUnitTestCommonFunc:
+	-python genUnitTestCommonFunc.py
+
+genUnitTestIntegerFunc:
+	-python genUnitTestIntegerFunc.py
+
+genUnitTestMathFunc:
+	-python genUnitTestMathFunc.py
+
+genUnitTestRelationalFunc:
+	-python genUnitTestRelationalFunc.py
+
+genUnitTestOperator:
+	-python genUnitTestOperator.py
 
 clean:
-	-cd arithmetic_operator && make clean
-	-cd common && make clean
-	-cd integer && make clean
-	-cd math && make clean
-	-cd relational && make clean
-	-cd workitem && make clean
+	rm -rf ../test
