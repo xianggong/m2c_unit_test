@@ -1,6 +1,6 @@
-all: frontend
+all: genUnitTest 
 
-frontend:
+genUnitTest:
 	cd src && make
 
 clean:

@@ -16,4 +16,4 @@ genUnitTestOperator:
 	-python genUnitTestOperator.py
 
 clean:
-	rm -rf ../test
+	-rm -rf ../test

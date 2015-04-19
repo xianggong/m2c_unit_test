@@ -214,6 +214,47 @@ class unitTest(object):
                 self.dumpHostProgramReadSrc(path)
                 self.dumpHostProgramReadBin(path)
 
+        """ Function for generating Makefile """
+
+        def getHostMakeFile(self):
+                buffer = ""
+                with open("snippet/makefile.txt") as hostSrc:
+                        buffer = hostSrc.read()
+                buffer = buffer.replace("KERNEL_NAME", self.kernelName)
+                return buffer
+
+        def dumpMakeFile(self, path):
+                testDir = path + self.name + "/"
+                try:
+                    os.stat(testDir)
+                except:
+                    os.makedirs(testDir)
+
+                hostFile = open(testDir + "Makefile", "w+")
+                makefile = self.getHostMakeFile()
+                hostFile.write(makefile)
+                hostFile.close()
+
+        def getCompileScript(self):
+                buffer = ""
+                with open("snippet/compile.py") as hostSrc:
+                        buffer = hostSrc.read()
+                return buffer
+
+        def dumpCompileScript(self, path):
+                testDir = path + self.name + "/"
+                try:
+                    os.stat(testDir)
+                except:
+                    os.makedirs(testDir)
+
+                hostFile = open(testDir + "compile.py", "w+")
+                makefile = self.getCompileScript()
+                hostFile.write(makefile)
+                hostFile.close()
+
         def dumpAll(self, path):
                 self.dumpKernelProgram(path)
                 self.dumpHostProgram(path)
+                self.dumpMakeFile(path)
+                self.dumpCompileScript(path)
