@@ -2,13 +2,13 @@ include ../../../Makefile.inc
 
 CLC_ROOT = ../../../inc
 
-all: exe_read_src exe_read_bin amd_compile m2c_compile
+all: exe_src exe_bin amd_compile m2c_compile
 
-exe_read_src:
-	-$(CC) $(CC_FLAG) *src.c -o exe_read_src $(CC_INC) $(CC_LIB) > unary_plus_uint2.exe_read_src.log 2>&1
+exe_src:
+	-$(CC) $(CC_FLAG) *src.c -o exe_src $(CC_INC) $(CC_LIB) > unary_plus_uint2.exe_src.log 2>&1
 
-exe_read_bin:
-	-$(CC) $(CC_FLAG) *bin.c -o exe_read_bin $(CC_INC) $(CC_LIB) > unary_plus_uint2.exe_read_bin.log 2>&1
+exe_bin:
+	-$(CC) $(CC_FLAG) *bin.c -o exe_bin $(CC_INC) $(CC_LIB) > unary_plus_uint2.exe_bin.log 2>&1
 
 amd_compile:
 	-$(AMD_CC) --amd --amd-dump-all --amd-device 13 unary_plus_uint2.cl > unary_plus_uint2.amdcc.log 2>&1
@@ -18,4 +18,4 @@ m2c_compile:
 	-python compile.py
 
 clean:
-	rm -rf exe_read_src exe_read_bin *.ll *.log *files *bin *.s *.bc
+	rm -rf exe_src exe_bin *.ll *.log *files *bin *.s *.bc

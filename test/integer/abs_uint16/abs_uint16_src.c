@@ -165,7 +165,7 @@ int main(int argc, char const *argv[])
         cl_uint16 *src_0_host_buffer;
         src_0_host_buffer = malloc(num_elem * sizeof(cl_uint16));
         for (int i = 0; i < num_elem; i++)
-                src_0_host_buffer[i] = (cl_uint16)(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
+                src_0_host_buffer[i] = (cl_uint16){{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}};
         
         /* Create and init device side src buffer 0 */
         cl_mem src_0_device_buffer;

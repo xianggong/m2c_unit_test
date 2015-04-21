@@ -69,6 +69,6 @@ def getInitValue(dataType, initVal):
                                   valf, valf, valf, valf]}
 
         dataTypeHost = str(initValDic[dataType])
-        dataTypeHost = dataTypeHost.replace("[", "(")
-        dataTypeHost = dataTypeHost.replace("]", ")")
+        dataTypeHost = dataTypeHost.replace("[", "{{")
+        dataTypeHost = dataTypeHost.replace("]", "}}")
         return dataTypeHost
