@@ -29,4 +29,8 @@ SET_KERNEL_ARGS        ret |= clSetKernelArg(kernel, DST_IDX, sizeof(cl_mem), &d
                 exit(1);
         }
 
-        /* Dump dst buffer to file */        
+        /* Dump dst buffer to file */
+        char dump_file[100];
+        sprintf((char *)&dump_file, "%s.result", argv[0]);
+        write_buffer(dump_file, (const char *)dst_host_buffer, num_elem * sizeof(HOST_DST_DATA_TYPE));
+        printf("Result dumped to %s\n", dump_file);

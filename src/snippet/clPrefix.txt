@@ -33,6 +33,21 @@ unsigned char *read_buffer(char *file_name, size_t *size_ptr)
         return buf;
 }
 
+void write_buffer(char *file_name, const char *buffer, size_t buffer_size)
+{
+        FILE *f;
+
+        /* Open file */
+        f = fopen(file_name, "w+");
+
+        /* Write buffer */
+        if(buffer)
+                fwrite(buffer, 1, buffer_size, f);
+
+        /* Close file */
+        fclose(f);
+}
+
 int main(int argc, char const *argv[])
 {
         /* Get platform */

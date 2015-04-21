@@ -5,6 +5,7 @@
         /* Create host dst buffer */
         HOST_DST_DATA_TYPE *dst_host_buffer;
         dst_host_buffer = malloc(num_elem * sizeof(HOST_DST_DATA_TYPE));
+        memset((void *)dst_host_buffer, 1, num_elem * sizeof(HOST_DST_DATA_TYPE));
 
         /* Create device dst buffer */
         cl_mem dst_device_buffer;

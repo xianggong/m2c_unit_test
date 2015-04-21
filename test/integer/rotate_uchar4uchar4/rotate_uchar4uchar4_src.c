@@ -33,6 +33,21 @@ unsigned char *read_buffer(char *file_name, size_t *size_ptr)
         return buf;
 }
 
+void write_buffer(char *file_name, const char *buffer, size_t buffer_size)
+{
+        FILE *f;
+
+        /* Open file */
+        f = fopen(file_name, "w+");
+
+        /* Write buffer */
+        if(buffer)
+                fwrite(buffer, 1, buffer_size, f);
+
+        /* Close file */
+        fclose(f);
+}
+
 int main(int argc, char const *argv[])
 {
         /* Get platform */
@@ -206,6 +221,7 @@ int main(int argc, char const *argv[])
         /* Create host dst buffer */
         cl_uchar4 *dst_host_buffer;
         dst_host_buffer = malloc(num_elem * sizeof(cl_uchar4));
+        memset((void *)dst_host_buffer, 1, num_elem * sizeof(cl_uchar4));
 
         /* Create device dst buffer */
         cl_mem dst_device_buffer;
@@ -248,7 +264,11 @@ int main(int argc, char const *argv[])
                 exit(1);
         }
 
-        /* Dump dst buffer to file */        
+        /* Dump dst buffer to file */
+        char dump_file[100];
+        sprintf((char *)&dump_file, "%s.result", argv[0]);
+        write_buffer(dump_file, (const char *)dst_host_buffer, num_elem * sizeof(cl_uchar4));
+        printf("Result dumped to %s\n", dump_file);
         /* Free host dst buffer */
         free(dst_host_buffer);
 
