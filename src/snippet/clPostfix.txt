@@ -30,14 +30,6 @@
                 printf("error: call to 'clReleaseContext' failed\n");
                 exit(1);
         }
-        
-        /* Release device */
-        ret = clReleaseDevice(device);
-        if (ret != CL_SUCCESS)
-        {
-                printf("error: call to 'clReleaseDevice' failed\n");
-                exit(1);
-        }
-        
+                
         return 0;
 }

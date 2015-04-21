@@ -5,7 +5,13 @@
         cl_int bin_ret;
         
         /* Read program binary */
-        bin = read_buffer("KERNEL_NAME.opt.bin", &bin_len);
+        if (argc == 2)
+                bin = read_buffer((char *)argv[1], &bin_len);
+        else
+        {
+                printf("error: No binary specified\n");
+                exit(1);
+        }
         
         /* Create a program */
         cl_program program;

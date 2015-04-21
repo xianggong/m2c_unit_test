@@ -270,8 +270,7 @@ int main(int argc, char const *argv[])
                 exit(1);
         }
 
-        /* Dump dst buffer to file */
-
+        /* Dump dst buffer to file */        
         /* Free host dst buffer */
         free(dst_host_buffer);
 
@@ -347,14 +346,6 @@ int main(int argc, char const *argv[])
                 printf("error: call to 'clReleaseContext' failed\n");
                 exit(1);
         }
-        
-        /* Release device */
-        ret = clReleaseDevice(device);
-        if (ret != CL_SUCCESS)
-        {
-                printf("error: call to 'clReleaseDevice' failed\n");
-                exit(1);
-        }
-        
+                
         return 0;
 }
