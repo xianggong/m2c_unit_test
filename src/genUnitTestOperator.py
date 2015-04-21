@@ -15,16 +15,16 @@ gentype = ["char", "char2", "char4", "char8", "char16",
            "int", "int2", "int4", "int8", "int16",
            "float", "float2", "float4", "float8", "float16"]
 
-rlttype = ["uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar",
-           "uchar", "uchar", "uchar", "uchar", "uchar"]
+rlttype = ["int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16",
+           "int", "int2", "int4", "int8", "int16"]
 
 divtype = ["float", "float2", "float4", "float8", "float16",
            "float", "float2", "float4", "float8", "float16",

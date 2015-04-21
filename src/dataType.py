@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
 
+def hasNumbers(inputString):
+    return any(char.isdigit() for char in inputString)
+
+
 def getInitValue(dataType, initVal):
         val = int(initVal)
         valf = float(initVal)
@@ -69,6 +73,10 @@ def getInitValue(dataType, initVal):
                                   valf, valf, valf, valf]}
 
         dataTypeHost = str(initValDic[dataType])
-        dataTypeHost = dataTypeHost.replace("[", "{{")
-        dataTypeHost = dataTypeHost.replace("]", "}}")
+        if hasNumbers(dataType):
+                dataTypeHost = dataTypeHost.replace("[", "{{")
+                dataTypeHost = dataTypeHost.replace("]", "}}")
+        else:
+                dataTypeHost = dataTypeHost.replace("[", "(")
+                dataTypeHost = dataTypeHost.replace("]", ")")
         return dataTypeHost

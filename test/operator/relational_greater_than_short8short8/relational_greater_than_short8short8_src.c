@@ -204,12 +204,12 @@ int main(int argc, char const *argv[])
         }
 
         /* Create host dst buffer */
-        cl_uchar *dst_host_buffer;
-        dst_host_buffer = malloc(num_elem * sizeof(cl_uchar));
+        cl_int8 *dst_host_buffer;
+        dst_host_buffer = malloc(num_elem * sizeof(cl_int8));
 
         /* Create device dst buffer */
         cl_mem dst_device_buffer;
-        dst_device_buffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, num_elem *sizeof(cl_uchar), NULL, &ret);
+        dst_device_buffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, num_elem *sizeof(cl_int8), NULL, &ret);
         if (ret != CL_SUCCESS)
         {
                 printf("error: could not create dst buffer\n");
@@ -241,7 +241,7 @@ int main(int argc, char const *argv[])
         clFinish(command_queue);
 
         /* Read results from GPU */
-        ret = clEnqueueReadBuffer(command_queue, dst_device_buffer, CL_TRUE,0, num_elem * sizeof(cl_uchar), dst_host_buffer, 0, NULL, NULL);
+        ret = clEnqueueReadBuffer(command_queue, dst_device_buffer, CL_TRUE,0, num_elem * sizeof(cl_int8), dst_host_buffer, 0, NULL, NULL);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clEnqueueReadBuffer' failed\n");

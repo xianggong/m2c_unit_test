@@ -175,7 +175,7 @@ int main(int argc, char const *argv[])
         cl_short *src_0_host_buffer;
         src_0_host_buffer = malloc(num_elem * sizeof(cl_short));
         for (int i = 0; i < num_elem; i++)
-                src_0_host_buffer[i] = (cl_short){{2}};
+                src_0_host_buffer[i] = (cl_short)(2);
         
         /* Create and init device side src buffer 0 */
         cl_mem src_0_device_buffer;
@@ -196,7 +196,7 @@ int main(int argc, char const *argv[])
         cl_short *src_1_host_buffer;
         src_1_host_buffer = malloc(num_elem * sizeof(cl_short));
         for (int i = 0; i < num_elem; i++)
-                src_1_host_buffer[i] = (cl_short){{2}};
+                src_1_host_buffer[i] = (cl_short)(2);
         
         /* Create and init device side src buffer 1 */
         cl_mem src_1_device_buffer;
@@ -214,12 +214,12 @@ int main(int argc, char const *argv[])
         }
 
         /* Create host dst buffer */
-        cl_uchar *dst_host_buffer;
-        dst_host_buffer = malloc(num_elem * sizeof(cl_uchar));
+        cl_int *dst_host_buffer;
+        dst_host_buffer = malloc(num_elem * sizeof(cl_int));
 
         /* Create device dst buffer */
         cl_mem dst_device_buffer;
-        dst_device_buffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, num_elem *sizeof(cl_uchar), NULL, &ret);
+        dst_device_buffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, num_elem *sizeof(cl_int), NULL, &ret);
         if (ret != CL_SUCCESS)
         {
                 printf("error: could not create dst buffer\n");
@@ -251,7 +251,7 @@ int main(int argc, char const *argv[])
         clFinish(command_queue);
 
         /* Read results from GPU */
-        ret = clEnqueueReadBuffer(command_queue, dst_device_buffer, CL_TRUE,0, num_elem * sizeof(cl_uchar), dst_host_buffer, 0, NULL, NULL);
+        ret = clEnqueueReadBuffer(command_queue, dst_device_buffer, CL_TRUE,0, num_elem * sizeof(cl_int), dst_host_buffer, 0, NULL, NULL);
         if (ret != CL_SUCCESS)
         {
                 printf("error: call to 'clEnqueueReadBuffer' failed\n");
